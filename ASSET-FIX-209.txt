@@ -1,0 +1,9 @@
+ECRINTEL Asset Fix 209
+Changed only:
+- Market updater now covers all Asset Intelligence chips, including Hang Seng.
+- Asset-event matching is stricter.
+
+Untouched:
+INTEL loader, region hard fix, map, Breaking, Timeline, Source Verification, Calendar, Impact Engine.
+
+After deploy: run ECRINTEL data engine once.

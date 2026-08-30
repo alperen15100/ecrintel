@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#05080a">
+  <meta name="description" content="ECRINTEL — global market intelligence, live situational awareness, market radar and source-based impact signals.">
+  <link rel="manifest" href="manifest.json">
+  <title>ECRINTEL — Global Market Intelligence</title>
+  <link rel="preconnect" href="https://unpkg.com">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+  <link rel="stylesheet" href="styles.css?v=209-asset-fix">
+</head>
+<body>
+<div class="terminal">
+  <header>
+    <div>
+      <b class="logo">ECR<span>INTEL</span></b>
+      <small>GLOBAL MARKET INTELLIGENCE · ECRIN LABS</small>
+    </div>
+    <div class="status" id="sysStatus"><i></i> CONNECTING</div>
+  </header>
+
+  <div class="ticker tickerViewport"><div class="tickerTrack" id="ticker">
+    <span><b>DATA</b> Connecting live feeds…</span>
+  </div></div>
+  <div id="breakingBar" class="breakingBar hide"><b>BREAKING INTELLIGENCE</b><span id="breakingText"></span><button id="breakingOpen">OPEN</button></div>
+
+  <div class="toolbar" id="toolbar">
+    <button class="on" data-layer="all">WORLD</button>
+    <button data-layer="markets">MARKETS</button>
+    <button data-layer="geopolitics">GEOPOLITICS</button>
+    <button data-layer="macro">MACRO</button>
+    <button data-layer="energy">ENERGY</button>
+    <button data-layer="earthquake">EARTHQUAKES</button>
+    <button data-layer="wildfire">WILDFIRES</button>
+    <button data-layer="storm">STORMS</button>
+    <button data-layer="volcano">VOLCANOES</button>
+    <button data-layer="americas">AMERICAS</button>
+    <button data-layer="europe">EUROPE</button>
+    <button data-layer="middleeast">MIDDLE EAST</button>
+    <button data-layer="asia">ASIA</button>
+    <button data-layer="africa">AFRICA</button>
+  </div>
+
+  <main>
+    <section class="mapPanel panel" id="mapSection">
+      <div class="panelHead">
+        <b>GLOBAL SITUATIONAL MAP</b>
+        <span id="mapMode">LIVE · GLOBAL MULTI-SOURCE</span>
+      </div>
+      <div id="map"></div>
+      <div class="mapStats" id="mapStats">
+        <span>● EARTHQUAKES <b id="eqCount">—</b></span>
+        <span>● NATURAL <b id="eonetCount">—</b></span>
+        <span>● INTEL <b id="intelCount">—</b></span>
+        <span>● LAST UPDATE <b id="lastUpdate">—</b></span>
+      </div>
+    </section>
+
+    <section class="grid">
+      <div class="panel statusPanel" id="activitySection">
+        <div class="panelHead"><b>GLOBAL ACTIVITY</b><span>OBSERVED · NO RISK SCORE</span></div>
+        <div class="activityGrid">
+          <div><strong id="activeEvents">—</strong><span>ACTIVE EVENTS</span></div>
+          <div><strong id="criticalEvents">—</strong><span>HIGH-SEVERITY</span></div>
+          <div><strong id="activeRegions">—</strong><span>REGIONS</span></div>
+          <div><strong id="marketMove">—</strong><span>GLOBAL MARKET MOVE</span></div>
+        </div>
+      </div>
+
+      <div class="panel" id="marketsSection">
+        <div class="panelHead"><b>MARKET RADAR</b><span id="marketState">LIVE / FALLBACK</span></div>
+        <div id="markets"></div>
+      </div>
+
+      <div class="panel span2" id="feedsSection">
+        <div class="panelHead"><b>INTELLIGENCE FEED</b><span id="intelState">MULTI-SOURCE LIVE</span></div>
+        <div class="intelTabs" id="intelTabs">
+          <button class="on" data-feed="all">ALL</button><button data-feed="geopolitics">GEO</button>
+          <button data-feed="macro">MACRO</button><button data-feed="energy">ENERGY</button>
+          <button data-feed="natural">NATURAL</button>
+        </div>
+        <div id="feed"><div class="feeditem"><p>Loading live events…</p></div></div>
+      </div>
+
+      
+      <div class="panel span2" id="searchSection">
+        <div class="panelHead"><b>INTELLIGENCE SEARCH</b><span>ASSET · COUNTRY · EVENT</span></div>
+        <div class="searchbar"><input id="intelSearch" placeholder="Search Iran, Hormuz, BTC, Gold, tanker…"><button id="searchClear">CLEAR</button></div>
+        <div id="searchResults" class="searchResults"><small>Search across current intelligence signals.</small></div>
+      </div>
+
+      <div class="panel" id="whySection">
+        <div class="panelHead"><b>WHY IS IT MOVING?</b><span>NO FAKE ATTRIBUTION %</span></div>
+        <div class="assetChips" id="assetChips"></div>
+        <div class="whyBox" id="whyBox"><strong>Select an asset</strong><p>See current events that may be relevant to its movement.</p></div>
+      </div>
+
+      <div class="panel" id="watchSection">
+        <div class="panelHead"><b>WATCHLIST</b><span>LOCAL · PRIVATE</span></div>
+        <div class="assetChips" id="watchChips"></div>
+        <div class="watchStatus" id="watchStatus">Select assets to monitor on this device.</div>
+        <button class="notifyBtn" id="notifyBtn">ENABLE DEVICE ALERTS</button>
+      </div>
+
+      <div class="panel span2" id="assetIntelSection">
+        <div class="panelHead"><b>ASSET INTELLIGENCE</b><span>PRICE · EVENTS · WHY IT MOVES</span></div>
+        <div class="assetChips" id="assetIntelChips"></div>
+        <div id="assetIntelBody" class="assetIntelBody"><small>Select an asset for its intelligence dossier.</small></div>
+      </div>
+
+      <div class="panel span2" id="timelineSection">
+        <div class="panelHead"><b>INTELLIGENCE TIMELINE</b><span>EVENT → SOURCES → MARKET CONTEXT</span></div>
+        <div id="intelTimeline" class="intelTimeline"><small>Select an event or asset to build a timeline.</small></div>
+      </div>
+
+      <div class="panel span2" id="verificationSection">
+        <div class="panelHead"><b>SOURCE VERIFICATION</b><span>INDEPENDENT SOURCE DENSITY</span></div>
+        <div id="verificationFeed"><div class="feeditem"><p>Waiting for intelligence signals…</p></div></div>
+      </div>
+
+      <div class="panel span2" id="calendarSection">
+        <div class="panelHead"><b>MACRO CALENDAR</b><span id="calendarState">UPCOMING</span></div>
+        <div id="macroCalendar"><div class="feeditem"><p>Loading macro schedule…</p></div></div>
+      </div>
+
+      <div class="panel" id="impactSection">
+        <div class="panelHead"><b>MARKET IMPACT ENGINE</b><span id="signalCount">0 SIGNALS</span></div>
+        <div class="corr" id="correlation">
+          <strong>Waiting for live signals</strong>
+          <p>Observed events are translated into transparent market sensitivity signals.</p>
+          <div>STATUS <b>WAITING</b></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <nav id="bottomNav">
+    <button class="on" data-target="mapSection">⌖<span>MAP</span></button>
+    <button data-target="feedsSection">▥<span>FEEDS</span></button>
+    <button data-target="marketsSection">◫<span>MARKETS</span></button>
+    <button data-target="impactSection">⌁<span>IMPACT</span></button>
+    <button data-target="toolbar">⚙<span>LAYERS</span></button>
+  </nav>
+
+  <div id="modal" class="modal hide">
+    <div>
+      <button id="x">×</button>
+      <small id="mr"></small>
+      <h2 id="mt"></h2>
+      <p id="md"></p>
+      <div id="mi"></div><a id="sourceLink" class="sourceLink hide" target="_blank" rel="noopener noreferrer">OPEN SOURCE ↗</a>
+      <footer>MARKET SENSITIVITY ≠ PRICE FORECAST · SOURCE-BASED · INFORMATIONAL ONLY</footer>
+    </div>
+  </div>
+</div>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="app.js?v=209-asset-fix"></script>
+<script>if("serviceWorker" in navigator)window.addEventListener("load",()=>navigator.serviceWorker.register("./sw.js").catch(console.warn));</script>
+</body>
+</html>

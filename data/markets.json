@@ -1,58 +1,58 @@
 {
-  "updatedAt": "2026-08-31T06:47:01.289217Z",
+  "updatedAt": "2026-08-31T14:55:11.954802Z",
   "markets": [
     {
       "symbol": "BTC",
-      "priceDisplay": "$78,090",
-      "change": -2.7,
+      "priceDisplay": "$78,403",
+      "change": -2.31,
       "source": "Global feed"
     },
     {
       "symbol": "ETH",
-      "priceDisplay": "$2,443.29",
-      "change": -2.67,
+      "priceDisplay": "$2,462.87",
+      "change": -1.89,
       "source": "Global feed"
     },
     {
       "symbol": "GOLD",
-      "priceDisplay": "$4,486.60",
-      "change": -2.43,
+      "priceDisplay": "$4,483.70",
+      "change": -2.49,
       "source": "Global feed"
     },
     {
       "symbol": "BRENT",
-      "priceDisplay": "$90.63",
-      "change": 3.18,
+      "priceDisplay": "$88.26",
+      "change": 0.48,
       "source": "Global feed"
     },
     {
       "symbol": "WTI",
-      "priceDisplay": "$85.63",
-      "change": 4.13,
+      "priceDisplay": "$85.41",
+      "change": 3.87,
       "source": "Global feed"
     },
     {
       "symbol": "S&P500",
-      "priceDisplay": "7,711.76",
-      "change": 0.49,
+      "priceDisplay": "7,675.51",
+      "change": 0.3,
       "source": "Global feed"
     },
     {
       "symbol": "NASDAQ",
-      "priceDisplay": "26,402.42",
-      "change": 0.85,
+      "priceDisplay": "26,277.36",
+      "change": 1.14,
       "source": "Global feed"
     },
     {
       "symbol": "DXY",
-      "priceDisplay": "99.61",
-      "change": 0.45,
+      "priceDisplay": "99.49",
+      "change": 0.32,
       "source": "Global feed"
     },
     {
       "symbol": "EUR/USD",
-      "priceDisplay": "1.1593",
-      "change": -0.64,
+      "priceDisplay": "1.1616",
+      "change": -0.45,
       "source": "Global feed"
     },
     {
@@ -63,8 +63,8 @@
     },
     {
       "symbol": "DAX",
-      "priceDisplay": "26,569.99",
-      "change": 1.66,
+      "priceDisplay": "26,314.31",
+      "change": 0.8,
       "source": "Global feed"
     },
     {
@@ -75,8 +75,8 @@
     },
     {
       "symbol": "HANG SENG",
-      "priceDisplay": "25,488.75",
-      "change": -0.11,
+      "priceDisplay": "25,566.99",
+      "change": 0.19,
       "source": "Global feed"
     }
   ]

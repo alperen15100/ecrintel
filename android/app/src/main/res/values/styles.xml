@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Theme.Ecrintel" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="android:fontFamily">sans</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:statusBarColor">#090B0E</item>
+        <item name="android:navigationBarColor">#090B0E</item>
+        <item name="android:windowBackground">#090B0E</item>
+        <item name="colorPrimary">#B7FF3C</item>
+        <item name="colorSecondary">#B7FF3C</item>
+    </style>
+</resources>

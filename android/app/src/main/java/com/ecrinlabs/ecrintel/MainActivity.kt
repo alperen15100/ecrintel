@@ -128,7 +128,9 @@ class MainActivity : AppCompatActivity() {
     override fun onDestroy() {
         webView.stopLoading()
         webView.webChromeClient = null
-        webView.webViewClient = null
+        webView.loadUrl("about:blank")
+        webView.clearHistory()
+        webView.removeAllViews()
         webView.destroy()
         super.onDestroy()
     }

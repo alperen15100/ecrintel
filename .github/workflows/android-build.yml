@@ -15,6 +15,12 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Materialize exact ECRINTEL artwork
+        run: |
+          mkdir -p android/app/src/main/res/drawable-nodpi
+          base64 -d android/app/src/main/assets/ecrintel_icon_2026.b64 > android/app/src/main/res/drawable-nodpi/ecrintel_icon_2026_exact.jpg
+          file android/app/src/main/res/drawable-nodpi/ecrintel_icon_2026_exact.jpg
+
       - name: Set up JDK 17
         uses: actions/setup-java@v5
         with:

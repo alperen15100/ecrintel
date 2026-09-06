@@ -2,7 +2,7 @@
 <resources>
     <style name="Theme.Ecrintel.Splash" parent="Theme.Ecrintel">
         <item name="android:windowSplashScreenBackground">#070A0D</item>
-        <item name="android:windowSplashScreenAnimatedIcon">@drawable/ic_ecrintel_globe_2026</item>
+        <item name="android:windowSplashScreenAnimatedIcon">@drawable/ecrintel_icon_2026_exact</item>
         <item name="android:windowSplashScreenIconBackgroundColor">#070A0D</item>
         <item name="android:windowBackground">@drawable/ecrintel_splash_2026</item>
     </style>

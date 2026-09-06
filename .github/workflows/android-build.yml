@@ -3,10 +3,13 @@ name: ECRINTEL Android Build
 on:
   workflow_dispatch:
   push:
-    branches: [ android-app, ecrintel-intelligence-suite ]
+    branches: [ ecrintel-intelligence-suite ]
     paths:
-      - 'android/**'
-      - '.github/workflows/android-build.yml'
+      - 'android/BUILD_TRIGGER'
+
+concurrency:
+  group: ecrintel-android-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
   build:

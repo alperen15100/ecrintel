@@ -4,18 +4,30 @@
     android:layout_height="match_parent"
     android:background="#090B0E">
 
-    <org.osmdroid.views.MapView
-        android:id="@+id/map"
+    <WebView
+        android:id="@+id/webView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        android:background="#090B0E" />
+
+    <ProgressBar
+        android:id="@+id/progress"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_gravity="top"
+        android:max="100"
+        android:progress="0" />
 
     <LinearLayout
+        android:id="@+id/errorPanel"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="top"
+        android:layout_height="match_parent"
+        android:gravity="center"
         android:orientation="vertical"
-        android:padding="14dp"
-        android:background="#E6090B0E">
+        android:padding="28dp"
+        android:background="#090B0E"
+        android:visibility="gone">
 
         <TextView
             android:layout_width="wrap_content"
@@ -23,64 +35,25 @@
             android:text="ECRINTEL"
             android:textColor="#FFFFFF"
             android:textStyle="bold"
-            android:textSize="20sp" />
+            android:textSize="24sp" />
 
         <TextView
-            android:id="@+id/statusText"
+            android:id="@+id/errorText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:gravity="center"
+            android:text="ECRINTEL couldn't connect."
+            android:textColor="#AAB2BD"
+            android:textSize="14sp" />
+
+        <Button
+            android:id="@+id/retryButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="2dp"
-            android:text="GLOBAL MARKET INTELLIGENCE · LOADING"
-            android:textColor="#AAB2BD"
-            android:textSize="11sp" />
-
-        <HorizontalScrollView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:scrollbars="none">
-
-            <LinearLayout
-                android:id="@+id/filterRow"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal" />
-        </HorizontalScrollView>
+            android:layout_marginTop="18dp"
+            android:text="Retry"
+            android:textAllCaps="false" />
     </LinearLayout>
 
-    <LinearLayout
-        android:id="@+id/eventCard"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom"
-        android:orientation="vertical"
-        android:padding="16dp"
-        android:background="#F20D1116"
-        android:visibility="gone">
-
-        <TextView
-            android:id="@+id/eventMeta"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="#B7FF3C"
-            android:textStyle="bold"
-            android:textSize="11sp" />
-
-        <TextView
-            android:id="@+id/eventTitle"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="6dp"
-            android:textColor="#FFFFFF"
-            android:textStyle="bold"
-            android:textSize="15sp" />
-
-        <TextView
-            android:id="@+id/eventSource"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:textColor="#AAB2BD"
-            android:textSize="12sp" />
-    </LinearLayout>
 </FrameLayout>

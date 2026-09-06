@@ -24,12 +24,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
-import androidx.work.Constraints
-import androidx.work.ExistingPeriodicWorkPolicy
-import androidx.work.NetworkType
-import androidx.work.PeriodicWorkRequestBuilder
-import androidx.work.WorkManager
-import java.util.concurrent.TimeUnit
+import org.json.JSONObject
 
 class MainActivity : AppCompatActivity() {
     private lateinit var webView: WebView
@@ -39,12 +34,12 @@ class MainActivity : AppCompatActivity() {
     private lateinit var retryButton: Button
     private val appUrl = "https://alperen15100.github.io/ecrintel/"
     private val appHost = "alperen15100.github.io"
-    private val channelId = IntelligenceWorker.CHANNEL_ID
+    private val channelId = "ecrintel_intelligence"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        window.statusBarColor = Color.rgb(9, 11, 14)
-        window.navigationBarColor = Color.rgb(9, 11, 14)
+        window.statusBarColor = Color.rgb(9,11,14)
+        window.navigationBarColor = Color.rgb(9,11,14)
         setContentView(R.layout.activity_main)
         webView = findViewById(R.id.webView)
         progress = findViewById(R.id.progress)
@@ -52,17 +47,10 @@ class MainActivity : AppCompatActivity() {
         errorText = findViewById(R.id.errorText)
         retryButton = findViewById(R.id.retryButton)
         createNotificationChannel()
-        scheduleBackgroundIntelligence()
         configureWebView()
-        retryButton.setOnClickListener {
-            errorPanel.visibility = View.GONE
-            progress.visibility = View.VISIBLE
-            webView.reload()
-        }
+        retryButton.setOnClickListener { errorPanel.visibility = View.GONE; progress.visibility = View.VISIBLE; webView.reload() }
         onBackPressedDispatcher.addCallback(this, object : OnBackPressedCallback(true) {
-            override fun handleOnBackPressed() {
-                if (webView.canGoBack()) webView.goBack() else finish()
-            }
+            override fun handleOnBackPressed() { if (webView.canGoBack()) webView.goBack() else finish() }
         })
         if (savedInstanceState == null) webView.loadUrl(appUrl) else webView.restoreState(savedInstanceState)
     }
@@ -82,7 +70,7 @@ class MainActivity : AppCompatActivity() {
             setSupportZoom(false)
             userAgentString = "$userAgentString ECRINTEL-Android/1.2"
         }
-        webView.setBackgroundColor(Color.rgb(9, 11, 14))
+        webView.setBackgroundColor(Color.rgb(9,11,14))
         webView.overScrollMode = View.OVER_SCROLL_NEVER
         webView.addJavascriptInterface(AndroidBridge(), "EcrintelAndroid")
         webView.webChromeClient = object : WebChromeClient() {
@@ -96,23 +84,16 @@ class MainActivity : AppCompatActivity() {
                 val uri = request?.url ?: return false
                 val internal = uri.scheme == "https" && uri.host == appHost && uri.path?.startsWith("/ecrintel") == true
                 if (internal) return false
-                return try {
-                    startActivity(Intent(Intent.ACTION_VIEW, uri))
-                    true
-                } catch (_: Exception) {
-                    false
-                }
+                return try { startActivity(Intent(Intent.ACTION_VIEW, uri)); true } catch (_: Exception) { false }
             }
-
             override fun onPageStarted(view: WebView?, url: String?, favicon: android.graphics.Bitmap?) {
                 errorPanel.visibility = View.GONE
                 progress.visibility = View.VISIBLE
             }
-
             override fun onPageFinished(view: WebView?, url: String?) {
                 progress.visibility = View.GONE
+                if (url?.startsWith(appUrl) == true) injectAndroidSuite()
             }
-
             override fun onReceivedError(view: WebView?, request: WebResourceRequest?, error: WebResourceError?) {
                 if (request?.isForMainFrame == true) {
                     progress.visibility = View.GONE
@@ -123,62 +104,37 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    private fun injectAndroidSuite() {
+        try {
+            val css = assets.open("ecrintel-suite.css").bufferedReader().use { it.readText() }
+            val js = assets.open("ecrintel-suite.js").bufferedReader().use { it.readText() }
+            val cssScript = "(function(){if(!document.getElementById('ecrintel-android-suite-css')){var s=document.createElement('style');s.id='ecrintel-android-suite-css';s.textContent=${JSONObject.quote(css)};document.head.appendChild(s);}})();"
+            webView.evaluateJavascript(cssScript) { webView.evaluateJavascript(js, null) }
+        } catch (_: Exception) { }
+    }
+
     inner class AndroidBridge {
-        @JavascriptInterface
-        fun requestNotifications() {
+        @JavascriptInterface fun requestNotifications() {
             runOnUiThread {
-                if (Build.VERSION.SDK_INT >= 33 && ActivityCompat.checkSelfPermission(
-                        this@MainActivity,
-                        Manifest.permission.POST_NOTIFICATIONS
-                    ) != PackageManager.PERMISSION_GRANTED
-                ) {
-                    ActivityCompat.requestPermissions(
-                        this@MainActivity,
-                        arrayOf(Manifest.permission.POST_NOTIFICATIONS),
-                        700
-                    )
-                }
+                if (Build.VERSION.SDK_INT >= 33 && ActivityCompat.checkSelfPermission(this@MainActivity, Manifest.permission.POST_NOTIFICATIONS) != PackageManager.PERMISSION_GRANTED)
+                    ActivityCompat.requestPermissions(this@MainActivity, arrayOf(Manifest.permission.POST_NOTIFICATIONS), 700)
             }
         }
-
-        @JavascriptInterface
-        fun setAlertPreferences(critical: Boolean, watchlist: Boolean) {
-            getSharedPreferences("ecrintel_native", MODE_PRIVATE).edit()
-                .putBoolean("critical_alerts", critical)
-                .putBoolean("watchlist_alerts", watchlist)
-                .apply()
-        }
-
-        @JavascriptInterface
-        fun notify(title: String, body: String) {
+        @JavascriptInterface fun notify(title: String, body: String) {
             runOnUiThread {
-                if (ActivityCompat.checkSelfPermission(
-                        this@MainActivity,
-                        Manifest.permission.POST_NOTIFICATIONS
-                    ) == PackageManager.PERMISSION_GRANTED || Build.VERSION.SDK_INT < 33
-                ) {
+                if (ActivityCompat.checkSelfPermission(this@MainActivity, Manifest.permission.POST_NOTIFICATIONS) == PackageManager.PERMISSION_GRANTED || Build.VERSION.SDK_INT < 33) {
                     val n = NotificationCompat.Builder(this@MainActivity, channelId)
-                        .setSmallIcon(R.drawable.ic_notification)
-                        .setContentTitle(title.take(80))
-                        .setContentText(body.take(180))
+                        .setSmallIcon(R.drawable.ic_notification_ecrintel)
+                        .setContentTitle(title.take(80)).setContentText(body.take(180))
                         .setStyle(NotificationCompat.BigTextStyle().bigText(body.take(500)))
-                        .setPriority(NotificationCompat.PRIORITY_HIGH)
-                        .setAutoCancel(true)
-                        .build()
-                    NotificationManagerCompat.from(this@MainActivity)
-                        .notify((System.currentTimeMillis() % 100000).toInt(), n)
+                        .setPriority(NotificationCompat.PRIORITY_HIGH).build()
+                    NotificationManagerCompat.from(this@MainActivity).notify((System.currentTimeMillis() % 100000).toInt(), n)
                 }
             }
         }
-
-        @JavascriptInterface
-        fun share(title: String, text: String) {
+        @JavascriptInterface fun share(title: String, text: String) {
             runOnUiThread {
-                val i = Intent(Intent.ACTION_SEND).apply {
-                    type = "text/plain"
-                    putExtra(Intent.EXTRA_SUBJECT, title)
-                    putExtra(Intent.EXTRA_TEXT, text)
-                }
+                val i = Intent(Intent.ACTION_SEND).apply { type = "text/plain"; putExtra(Intent.EXTRA_SUBJECT, title); putExtra(Intent.EXTRA_TEXT, text) }
                 startActivity(Intent.createChooser(i, "Share ECRINTEL intelligence"))
             }
         }
@@ -186,41 +142,10 @@ class MainActivity : AppCompatActivity() {
 
     private fun createNotificationChannel() {
         if (Build.VERSION.SDK_INT >= 26) {
-            val c = NotificationChannel(
-                channelId,
-                "ECRINTEL Intelligence",
-                NotificationManager.IMPORTANCE_HIGH
-            ).apply { description = "Critical and watchlist-linked market intelligence" }
+            val c = NotificationChannel(channelId, "ECRINTEL Intelligence", NotificationManager.IMPORTANCE_HIGH).apply { description = "Critical and watchlist-linked market intelligence" }
             getSystemService(NotificationManager::class.java).createNotificationChannel(c)
         }
     }
-
-    private fun scheduleBackgroundIntelligence() {
-        val constraints = Constraints.Builder()
-            .setRequiredNetworkType(NetworkType.CONNECTED)
-            .build()
-        val request = PeriodicWorkRequestBuilder<IntelligenceWorker>(15, TimeUnit.MINUTES)
-            .setConstraints(constraints)
-            .build()
-        WorkManager.getInstance(this).enqueueUniquePeriodicWork(
-            "ecrintel-intelligence-refresh",
-            ExistingPeriodicWorkPolicy.UPDATE,
-            request
-        )
-    }
-
-    override fun onSaveInstanceState(outState: Bundle) {
-        webView.saveState(outState)
-        super.onSaveInstanceState(outState)
-    }
-
-    override fun onDestroy() {
-        webView.stopLoading()
-        webView.webChromeClient = null
-        webView.loadUrl("about:blank")
-        webView.clearHistory()
-        webView.removeAllViews()
-        webView.destroy()
-        super.onDestroy()
-    }
+    override fun onSaveInstanceState(outState: Bundle) { webView.saveState(outState); super.onSaveInstanceState(outState) }
+    override fun onDestroy() { webView.stopLoading(); webView.webChromeClient = null; webView.loadUrl("about:blank"); webView.clearHistory(); webView.removeAllViews(); webView.destroy(); super.onDestroy() }
 }

@@ -9,4 +9,8 @@
         <item name="colorPrimary">#B7FF3C</item>
         <item name="colorSecondary">#B7FF3C</item>
     </style>
+
+    <style name="Theme.Ecrintel.Splash" parent="Theme.Ecrintel">
+        <item name="android:windowBackground">@drawable/ecrintel_splash_2026</item>
+    </style>
 </resources>

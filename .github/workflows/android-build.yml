@@ -3,7 +3,7 @@ name: ECRINTEL Android Build
 on:
   workflow_dispatch:
   push:
-    branches: [ android-app ]
+    branches: [ android-app, ecrintel-intelligence-suite ]
     paths:
       - 'android/**'
       - '.github/workflows/android-build.yml'
@@ -46,11 +46,11 @@ jobs:
       - name: Upload APK
         uses: actions/upload-artifact@v4
         with:
-          name: ECRINTEL-debug-apk-v1.1.0
+          name: ECRINTEL-intelligence-suite-debug-apk
           path: android/app/build/outputs/apk/debug/app-debug.apk
 
       - name: Upload AAB
         uses: actions/upload-artifact@v4
         with:
-          name: ECRINTEL-release-aab-v1.1.0-unsigned
+          name: ECRINTEL-intelligence-suite-release-aab-unsigned
           path: android/app/build/outputs/bundle/release/app-release.aab

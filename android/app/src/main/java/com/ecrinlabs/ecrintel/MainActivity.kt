@@ -124,10 +124,12 @@ class MainActivity : AppCompatActivity() {
             runOnUiThread {
                 if (ActivityCompat.checkSelfPermission(this@MainActivity, Manifest.permission.POST_NOTIFICATIONS) == PackageManager.PERMISSION_GRANTED || Build.VERSION.SDK_INT < 33) {
                     val n = NotificationCompat.Builder(this@MainActivity, channelId)
-                        .setSmallIcon(R.drawable.ic_notification_ecrintel)
-                        .setContentTitle(title.take(80)).setContentText(body.take(180))
+                        .setSmallIcon(R.drawable.ic_notification)
+                        .setContentTitle(title.take(80))
+                        .setContentText(body.take(180))
                         .setStyle(NotificationCompat.BigTextStyle().bigText(body.take(500)))
-                        .setPriority(NotificationCompat.PRIORITY_HIGH).build()
+                        .setPriority(NotificationCompat.PRIORITY_HIGH)
+                        .build()
                     NotificationManagerCompat.from(this@MainActivity).notify((System.currentTimeMillis() % 100000).toInt(), n)
                 }
             }

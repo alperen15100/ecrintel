@@ -16,7 +16,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Set up JDK 17
-        uses: actions/setup-java@v4
+        uses: actions/setup-java@v5
         with:
           distribution: temurin
           java-version: '17'
@@ -24,14 +24,27 @@ jobs:
       - name: Set up Gradle
         uses: gradle/actions/setup-gradle@v4
         with:
-          gradle-version: '8.10.2'
+          gradle-version: '8.11.1'
+
+      - name: Install Android 16 SDK
+        run: yes | sdkmanager "platforms;android-36" "build-tools;36.0.0" || true
 
       - name: Build debug APK
         working-directory: android
         run: gradle :app:assembleDebug --stacktrace
 
+      - name: Build release bundle
+        working-directory: android
+        run: gradle :app:bundleRelease --stacktrace
+
       - name: Upload APK
         uses: actions/upload-artifact@v4
         with:
-          name: ECRINTEL-debug-apk
+          name: ECRINTEL-debug-apk-v1.1.0
           path: android/app/build/outputs/apk/debug/app-debug.apk
+
+      - name: Upload AAB
+        uses: actions/upload-artifact@v4
+        with:
+          name: ECRINTEL-release-aab-v1.1.0-unsigned
+          path: android/app/build/outputs/bundle/release/app-release.aab

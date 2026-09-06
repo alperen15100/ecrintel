@@ -29,7 +29,12 @@ import androidx.work.ExistingPeriodicWorkPolicy
 import androidx.work.NetworkType
 import androidx.work.PeriodicWorkRequestBuilder
 import androidx.work.WorkManager
+import com.google.mlkit.nl.translate.TranslateLanguage
+import com.google.mlkit.nl.translate.Translation
+import com.google.mlkit.nl.translate.Translator
+import com.google.mlkit.nl.translate.TranslatorOptions
 import org.json.JSONObject
+import java.util.concurrent.ConcurrentHashMap
 import java.util.concurrent.TimeUnit
 
 class MainActivity : AppCompatActivity() {
@@ -41,11 +46,12 @@ class MainActivity : AppCompatActivity() {
     private val contentUrl = "https://alperen15100.github.io/ecrintel/"
     private val contentHost = "alperen15100.github.io"
     private val channelId = "ecrintel_intelligence"
+    private val translators = ConcurrentHashMap<String, Translator>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        window.statusBarColor = Color.rgb(9, 11, 14)
-        window.navigationBarColor = Color.rgb(9, 11, 14)
+        window.statusBarColor = Color.rgb(11, 13, 18)
+        window.navigationBarColor = Color.rgb(11, 13, 18)
         setContentView(R.layout.activity_main)
         webView = findViewById(R.id.webView)
         progress = findViewById(R.id.progress)
@@ -81,9 +87,9 @@ class MainActivity : AppCompatActivity() {
             useWideViewPort = true
             loadWithOverviewMode = false
             setSupportZoom(false)
-            userAgentString = "$userAgentString ECRINTEL-Mobile/1.3.1"
+            userAgentString = "$userAgentString ECRINTEL-Mobile/1.4"
         }
-        webView.setBackgroundColor(Color.rgb(9, 11, 14))
+        webView.setBackgroundColor(Color.rgb(11, 13, 18))
         webView.overScrollMode = View.OVER_SCROLL_NEVER
         webView.addJavascriptInterface(AndroidBridge(), "EcrintelAndroid")
         webView.webChromeClient = object : WebChromeClient() {
@@ -111,9 +117,7 @@ class MainActivity : AppCompatActivity() {
 
             override fun onPageFinished(view: WebView?, url: String?) {
                 progress.visibility = View.GONE
-                if (url?.startsWith(contentUrl) == true) {
-                    webView.postDelayed({ injectMobileUi() }, 1800)
-                }
+                if (url?.startsWith(contentUrl) == true) webView.postDelayed({ injectPremiumUi() }, 1800)
             }
 
             override fun onReceivedError(view: WebView?, request: WebResourceRequest?, error: WebResourceError?) {
@@ -126,30 +130,13 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun injectMobileUi() {
+    private fun injectPremiumUi() {
         try {
-            val css = assets.open("ecrintel-mobile-v2.css").bufferedReader().use { it.readText() }
-            var js = assets.open("ecrintel-mobile-v2.js").bufferedReader().use { it.readText() }
-
-            js = js.replace(
-                "function applyLanguage(){document.documentElement.lang=lang;document.documentElement.dir=LANGS[lang][1];if(q('#ecrintelMobileSuite'))add();translationsStatic();}",
-                "function applyLanguage(){document.documentElement.lang=lang;document.documentElement.dir=LANGS[lang][1];translationsStatic();}"
-            )
-            js = js.replace(
-                "localStorage.setItem('ecrintel.mobile.lang',lang);applyLanguage();",
-                "localStorage.setItem('ecrintel.mobile.lang',lang);document.documentElement.lang=lang;document.documentElement.dir=LANGS[lang][1];add();"
-            )
-            js = js.replace(
-                "if(key&&T(key))el.textContent=T(key)",
-                "if(key&&T(key)&&el.textContent!==T(key))el.textContent=T(key)"
-            )
-
-            val cssScript = "(function(){var o=document.getElementById('ecrintel-mobile-css');if(o)o.remove();var s=document.createElement('style');s.id='ecrintel-mobile-css';s.textContent=${JSONObject.quote(css)};document.head.appendChild(s);})();"
-            webView.evaluateJavascript(cssScript) {
-                webView.evaluateJavascript(js, null)
-            }
-        } catch (_: Exception) {
-        }
+            val css = assets.open("ecrintel-premium-v3.css").bufferedReader().use { it.readText() }
+            val js = assets.open("ecrintel-premium-v3.js").bufferedReader().use { it.readText() }
+            val cssScript = "(function(){var o=document.getElementById('ecrintel-premium-css');if(o)o.remove();var s=document.createElement('style');s.id='ecrintel-premium-css';s.textContent=${JSONObject.quote(css)};document.head.appendChild(s);})();"
+            webView.evaluateJavascript(cssScript) { webView.evaluateJavascript(js, null) }
+        } catch (_: Exception) { }
     }
 
     private fun scheduleBackgroundIntel() {
@@ -173,11 +160,7 @@ class MainActivity : AppCompatActivity() {
                         Manifest.permission.POST_NOTIFICATIONS
                     ) != PackageManager.PERMISSION_GRANTED
                 ) {
-                    ActivityCompat.requestPermissions(
-                        this@MainActivity,
-                        arrayOf(Manifest.permission.POST_NOTIFICATIONS),
-                        700
-                    )
+                    ActivityCompat.requestPermissions(this@MainActivity, arrayOf(Manifest.permission.POST_NOTIFICATIONS), 700)
                 }
             }
         }
@@ -185,11 +168,7 @@ class MainActivity : AppCompatActivity() {
         @JavascriptInterface
         fun notify(title: String, body: String) {
             runOnUiThread {
-                if (ActivityCompat.checkSelfPermission(
-                        this@MainActivity,
-                        Manifest.permission.POST_NOTIFICATIONS
-                    ) == PackageManager.PERMISSION_GRANTED || Build.VERSION.SDK_INT < 33
-                ) {
+                if (ActivityCompat.checkSelfPermission(this@MainActivity, Manifest.permission.POST_NOTIFICATIONS) == PackageManager.PERMISSION_GRANTED || Build.VERSION.SDK_INT < 33) {
                     val n = NotificationCompat.Builder(this@MainActivity, channelId)
                         .setSmallIcon(R.drawable.ic_notification)
                         .setContentTitle(title.take(80))
@@ -197,8 +176,7 @@ class MainActivity : AppCompatActivity() {
                         .setStyle(NotificationCompat.BigTextStyle().bigText(body.take(500)))
                         .setPriority(NotificationCompat.PRIORITY_HIGH)
                         .build()
-                    NotificationManagerCompat.from(this@MainActivity)
-                        .notify((System.currentTimeMillis() % 100000).toInt(), n)
+                    NotificationManagerCompat.from(this@MainActivity).notify((System.currentTimeMillis() % 100000).toInt(), n)
                 }
             }
         }
@@ -211,18 +189,51 @@ class MainActivity : AppCompatActivity() {
                     putExtra(Intent.EXTRA_SUBJECT, title)
                     putExtra(Intent.EXTRA_TEXT, text)
                 }
-                startActivity(Intent.createChooser(i, "Share ECRINTEL intelligence"))
+                startActivity(Intent.createChooser(i, "Share ECRINTEL"))
             }
+        }
+
+        @JavascriptInterface
+        fun translate(requestId: String, targetTag: String, text: String) {
+            if (text.isBlank()) {
+                resolveTranslation(requestId, text, null)
+                return
+            }
+            val normalized = if (targetTag.startsWith("zh")) "zh" else targetTag.lowercase()
+            if (normalized == "en") {
+                resolveTranslation(requestId, text, null)
+                return
+            }
+            val target = TranslateLanguage.fromLanguageTag(normalized)
+            if (target == null) {
+                resolveTranslation(requestId, text, "Unsupported language")
+                return
+            }
+            val translator = translators.getOrPut(normalized) {
+                val options = TranslatorOptions.Builder()
+                    .setSourceLanguage(TranslateLanguage.ENGLISH)
+                    .setTargetLanguage(target)
+                    .build()
+                Translation.getClient(options)
+            }
+            translator.downloadModelIfNeeded()
+                .onSuccessTask { translator.translate(text) }
+                .addOnSuccessListener { translated -> resolveTranslation(requestId, translated, null) }
+                .addOnFailureListener { e -> resolveTranslation(requestId, text, e.message ?: "Translation failed") }
+        }
+    }
+
+    private fun resolveTranslation(requestId: String, text: String, error: String?) {
+        runOnUiThread {
+            if (!::webView.isInitialized) return@runOnUiThread
+            val js = "window.EcrintelI18nResolve&&window.EcrintelI18nResolve(${JSONObject.quote(requestId)},${JSONObject.quote(text)},${if (error == null) "null" else JSONObject.quote(error)});"
+            webView.evaluateJavascript(js, null)
         }
     }
 
     private fun createNotificationChannel() {
         if (Build.VERSION.SDK_INT >= 26) {
-            val c = NotificationChannel(
-                channelId,
-                "ECRINTEL Intelligence",
-                NotificationManager.IMPORTANCE_HIGH
-            ).apply {
+            val c = NotificationChannel(channelId, "ECRINTEL Intelligence", NotificationManager.IMPORTANCE_HIGH).apply {
                 description = "Critical and watchlist-linked market intelligence"
             }
             getSystemService(NotificationManager::class.java).createNotificationChannel(c)
@@ -235,6 +246,8 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onDestroy() {
+        translators.values.forEach { it.close() }
+        translators.clear()
         webView.stopLoading()
         webView.webChromeClient = null
         webView.loadUrl("about:blank")

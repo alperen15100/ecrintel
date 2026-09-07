@@ -1,16 +1,16 @@
 {
-  "updatedAt": "2026-09-07T01:05:46.177279Z",
+  "updatedAt": "2026-09-07T06:07:24.322374Z",
   "markets": [
     {
       "symbol": "BTC",
-      "priceDisplay": "$80,149",
-      "change": -1.38,
+      "priceDisplay": "$79,768",
+      "change": -1.85,
       "source": "Global feed"
     },
     {
       "symbol": "ETH",
-      "priceDisplay": "$2,513.14",
-      "change": 0.2,
+      "priceDisplay": "$2,503.51",
+      "change": -0.18,
       "source": "Global feed"
     },
     {
@@ -45,20 +45,20 @@
     },
     {
       "symbol": "DXY",
-      "priceDisplay": "99.10",
-      "change": -0.57,
+      "priceDisplay": "99.13",
+      "change": -0.54,
       "source": "Global feed"
     },
     {
       "symbol": "EUR/USD",
-      "priceDisplay": "1.1620",
-      "change": 0.02,
+      "priceDisplay": "1.1614",
+      "change": -0.03,
       "source": "Global feed"
     },
     {
       "symbol": "NIKKEI",
-      "priceDisplay": "66,223.05",
-      "change": 0.01,
+      "priceDisplay": "66,274.30",
+      "change": 0.09,
       "source": "Global feed"
     },
     {
@@ -75,8 +75,8 @@
     },
     {
       "symbol": "HANG SENG",
-      "priceDisplay": "25,650.87",
-      "change": 0.26,
+      "priceDisplay": "25,401.66",
+      "change": -0.65,
       "source": "Global feed"
     }
   ]

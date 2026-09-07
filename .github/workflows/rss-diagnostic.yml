@@ -1,0 +1,26 @@
+name: ECRINTEL RSS diagnostic
+on:
+  push:
+    branches: [ ecrintel-intelligence-suite ]
+    paths: [ '.github/workflows/rss-diagnostic.yml' ]
+jobs:
+  inspect:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Inspect current Google News RSS media fields
+        run: |
+          python - <<'PY'
+          import urllib.request,urllib.parse,xml.etree.ElementTree as ET
+          q='Federal Reserve rates inflation jobs when:1d'
+          u='https://news.google.com/rss/search?q='+urllib.parse.quote(q)+'&hl=en-US&gl=US&ceid=US:en'
+          req=urllib.request.Request(u,headers={'User-Agent':'Mozilla/5.0'})
+          root=ET.fromstring(urllib.request.urlopen(req,timeout=20).read())
+          for i,item in enumerate(root.findall('.//item')[:3]):
+              print('--- ITEM',i,'---')
+              print('TITLE',item.findtext('title'))
+              for el in list(item):
+                  print('TAG',el.tag,'ATTR',el.attrib,'TEXT',(el.text or '')[:1200])
+          PY

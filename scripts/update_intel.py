@@ -2,6 +2,7 @@ import json,re,urllib.request,urllib.parse,xml.etree.ElementTree as ET,hashlib,h
 from datetime import datetime,timezone
 from pathlib import Path
 from email.utils import parsedate_to_datetime
+from google_news_decoder import decode_google_news_urls
 
 QUERIES=[
  ("geopolitics","Iran Israel conflict OR missile OR ceasefire when:1d"),("geopolitics","Ukraine Russia war OR strike OR sanctions when:1d"),("geopolitics","China Taiwan military OR trade tensions when:1d"),("geopolitics","Red Sea shipping attack OR Hormuz tanker when:1d"),("geopolitics","sanctions tariffs geopolitical markets when:1d"),
@@ -10,7 +11,7 @@ QUERIES=[
 LOCATIONS={"iran":(32,53),"israel":(31.5,34.8),"gaza":(31.4,34.4),"ukraine":(49,32),"russia":(55,37),"china":(35,103),"taiwan":(23.7,121),"japan":(36,138),"india":(22,79),"pakistan":(30,69),"turkey":(39,35),"türkiye":(39,35),"syria":(35,38),"iraq":(33,44),"saudi":(24,45),"yemen":(15.5,48),"qatar":(25.3,51.2),"uae":(24,54),"dubai":(25.2,55.3),"europe":(50,10),"germany":(51,10),"france":(46,2),"uk":(54,-2),"britain":(54,-2),"united states":(39,-98),"washington":(38.9,-77),"new york":(40.7,-74),"middle east":(29,45),"red sea":(20,38),"hormuz":(26.5,56.3),"persian gulf":(26,52),"black sea":(43,35),"taiwan strait":(24.5,119.5),"hong kong":(22.3,114.2),"south korea":(36,128),"north korea":(40,127)}
 
 def get(url,timeout=20):
- req=urllib.request.Request(url,headers={"User-Agent":"Mozilla/5.0 (compatible; ECRINTEL/2.3; +https://alperen15100.github.io/ecrintel/)","Accept":"text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8"})
+ req=urllib.request.Request(url,headers={"User-Agent":"Mozilla/5.0 (compatible; ECRINTEL/2.4; +https://alperen15100.github.io/ecrintel/)","Accept":"text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8"})
  with urllib.request.urlopen(req,timeout=timeout) as r:return r.read(),r.geturl(),r.headers.get("Content-Type","")
 def get_bytes(url):return get(url)[0]
 def loc(text):
@@ -61,7 +62,7 @@ def rss_image(item):
 def page_image(url):
  if not url:return ""
  try:
-  body,final_url,ctype=get(url,8)
+  body,final_url,ctype=get(url,6)
   if 'html' not in ctype.lower() and ctype:return ""
   text=body[:1000000].decode('utf-8','ignore')
   patterns=[r'<meta[^>]+(?:property|name)=["\']og:image(?::secure_url)?["\'][^>]+content=["\']([^"\']+)',r'<meta[^>]+content=["\']([^"\']+)["\'][^>]+(?:property|name)=["\']og:image(?::secure_url)?["\']',r'<meta[^>]+(?:property|name)=["\']twitter:image(?::src)?["\'][^>]+content=["\']([^"\']+)',r'<meta[^>]+content=["\']([^"\']+)["\'][^>]+(?:property|name)=["\']twitter:image(?::src)?["\']']
@@ -79,7 +80,7 @@ for cat,q in QUERIES:
  try:root=ET.fromstring(get_bytes(url))
  except Exception as e:print("WARN",cat,q,e);continue
  for item in root.findall(".//item")[:18]:
-  raw=(item.findtext("title") or "").strip();link=(item.findtext("link") or "").strip();pub=item.findtext("pubDate") or "";source=item.find("source");src=(source.text.strip() if source is not None and source.text else "Google News");clean=re.sub(r"\s+-\s+[^-]+$","",raw).strip()
+  raw=(item.findtext("title") or "").strip();link=(item.findtext("link") or "").strip();pub=item.findtext("pubDate") or "";source=item.find("source");src=(source.text.strip() if source is not None and source.text else "Google News");src_url=(source.attrib.get('url','').strip() if source is not None else '');clean=re.sub(r"\s+-\s+[^-]+$","",raw).strip()
   if not clean:continue
   existing=next((e for e in events if e["category"]==cat and near_duplicate(e["title"],clean)),None)
   if existing:
@@ -88,20 +89,27 @@ for cat,q in QUERIES:
   lat,lon=loc(clean)
   try:dt=parsedate_to_datetime(pub).astimezone(timezone.utc).isoformat().replace("+00:00","Z")
   except:dt=datetime.now(timezone.utc).isoformat().replace("+00:00","Z")
-  events.append({"id":hashlib.sha1((cat+clean).encode()).hexdigest()[:12],"category":cat,"type":cat,"title":clean,"source":src,"sources":[src],"sourceCount":1,"url":link,"image":rss_image(item),"time":dt,"severity":severity(clean,cat),"lat":lat,"lon":lon,"region":classify_region(clean,src),"description":"Public news signal aggregated from current RSS sources."})
+  events.append({"id":hashlib.sha1((cat+clean).encode()).hexdigest()[:12],"category":cat,"type":cat,"title":clean,"source":src,"sourceUrl":src_url,"sources":[src],"sourceCount":1,"url":link,"image":rss_image(item),"time":dt,"severity":severity(clean,cat),"lat":lat,"lon":lon,"region":classify_region(clean,src),"description":"Public news signal aggregated from current RSS sources."})
 
 balanced=[]
 for cat in ("geopolitics","energy","macro"):balanced+=sorted([e for e in events if e["category"]==cat],key=lambda x:(x["severity"],x["time"]),reverse=True)[:30]
 events=sorted(balanced,key=lambda x:(x["severity"],x["time"]),reverse=True)[:80]
-# Google-hosted RSS thumbnails are aggregation assets, not trusted article photography.
-for i,e in enumerate(events):
+
+# Resolve Google News wrappers to the publisher URL in one batch request. This improves source opening and enables article metadata images.
+decoded=decode_google_news_urls([e.get('url','') for e in events])
+for i,(e,direct_url) in enumerate(zip(events,decoded)):
+ try:
+  host=(urllib.parse.urlsplit(direct_url).hostname or '').lower()
+ except:host=''
+ if direct_url.startswith(('http://','https://')) and host!='news.google.com':e['url']=direct_url
  candidate=e.get('image','')
  if is_google_asset(candidate):candidate=''
- if not candidate:candidate=page_image(e.get('url',''))
+ # The mobile feed shows 30 stories; enrich 40 so visible cards and detail pages have headroom without making the 5-minute job too slow.
+ if not candidate and i<40:candidate=page_image(e.get('url',''))
  if is_google_asset(candidate):candidate=''
  e['image']=candidate
  if (i+1)%10==0:print('images',i+1,'/',len(events))
 Path("data").mkdir(exist_ok=True)
 Path("data/intel.json").write_text(json.dumps({"updatedAt":datetime.now(timezone.utc).isoformat().replace("+00:00","Z"),"counts":{c:sum(1 for e in events if e["category"]==c) for c in ("geopolitics","energy","macro")},"events":events},ensure_ascii=False,indent=2),encoding="utf-8")
-imgs=[e.get('image') for e in events if e.get('image')];unique=len(set(image_key(x) for x in imgs))
-print("intel",len(events),"images",len(imgs),"uniqueImages",unique,{c:sum(1 for e in events if e["category"]==c) for c in ("geopolitics","energy","macro")})
+imgs=[e.get('image') for e in events if e.get('image')];unique=len(set(image_key(x) for x in imgs));direct=sum(1 for e in events if 'news.google.com' not in e.get('url',''))
+print("intel",len(events),"directUrls",direct,"images",len(imgs),"uniqueImages",unique,{c:sum(1 for e in events if e["category"]==c) for c in ("geopolitics","energy","macro")})

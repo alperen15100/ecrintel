@@ -19,29 +19,31 @@ import java.time.Instant
 
 class IntelligenceWorker(appContext: Context, params: WorkerParameters) : CoroutineWorker(appContext, params) {
     companion object { const val CHANNEL_ID="ecrintel_intelligence"; private const val INTEL_URL="https://raw.githubusercontent.com/alperen15100/ecrintel/main/data/intel.json" }
-    override suspend fun doWork(): Result = try {
-        ensureChannel()
-        val prefs=applicationContext.getSharedPreferences("ecrintel_native",Context.MODE_PRIVATE)
-        if(!prefs.getBoolean("critical_alerts",false)) return Result.success()
-        val events=JSONObject(get(INTEL_URL)).optJSONArray("events")?:return Result.success()
-        val watch=parseWatch(prefs.getString("watch_assets","[]"))
-        val last=prefs.getLong("last_critical_time",0L)
-        var newest:JSONObject?=null;var newestTime=last;var newestHits=emptyList<String>()
-        for(i in 0 until events.length()){
-            val e=events.optJSONObject(i)?:continue
-            if(e.optInt("severity",0)<8)continue
-            val t=parseTime(e.optString("time"));if(t<=last)continue
-            val hits=linkedAssets(e.optString("title","")).filter{watch.contains(it)}
-            if(watch.isNotEmpty()&&hits.isEmpty())continue
-            if(t>newestTime){newest=e;newestTime=t;newestHits=hits}
-        }
-        if(newest!=null&&newestTime>last){
-            val label=if(newestHits.isNotEmpty())newestHits.joinToString(" · ") else "HIGH IMPACT"
-            notifyCritical("ECRINTEL · $label","${newest!!.optString("title","High-impact intelligence")}\n${newest!!.optString("source","Source")} · ${newest!!.optString("region","Global")}")
-            prefs.edit().putLong("last_critical_time",newestTime).apply()
-        }
-        Result.success()
-    } catch(_:Exception){Result.retry()}
+    override suspend fun doWork(): Result {
+        return try {
+            ensureChannel()
+            val prefs=applicationContext.getSharedPreferences("ecrintel_native",Context.MODE_PRIVATE)
+            if(!prefs.getBoolean("critical_alerts",false)) return Result.success()
+            val events=JSONObject(get(INTEL_URL)).optJSONArray("events") ?: return Result.success()
+            val watch=parseWatch(prefs.getString("watch_assets","[]"))
+            val last=prefs.getLong("last_critical_time",0L)
+            var newest:JSONObject?=null;var newestTime=last;var newestHits=emptyList<String>()
+            for(i in 0 until events.length()){
+                val e=events.optJSONObject(i)?:continue
+                if(e.optInt("severity",0)<8)continue
+                val t=parseTime(e.optString("time"));if(t<=last)continue
+                val hits=linkedAssets(e.optString("title","")).filter{watch.contains(it)}
+                if(watch.isNotEmpty()&&hits.isEmpty())continue
+                if(t>newestTime){newest=e;newestTime=t;newestHits=hits}
+            }
+            if(newest!=null&&newestTime>last){
+                val label=if(newestHits.isNotEmpty())newestHits.joinToString(" · ") else "HIGH IMPACT"
+                notifyCritical("ECRINTEL · $label","${newest!!.optString("title","High-impact intelligence")}\n${newest!!.optString("source","Source")} · ${newest!!.optString("region","Global")}")
+                prefs.edit().putLong("last_critical_time",newestTime).apply()
+            }
+            Result.success()
+        } catch(_:Exception){Result.retry()}
+    }
     private fun parseWatch(raw:String?):Set<String>{return try{val a=JSONArray(raw?:"[]");buildSet{for(i in 0 until a.length())add(a.optString(i).uppercase())}}catch(_:Exception){emptySet()}}
     private fun linkedAssets(title:String):Set<String>{val t=title.lowercase();val out=linkedSetOf<String>();if(Regex("oil|opec|tanker|hormuz|refinery|pipeline|brent").containsMatchIn(t))out.add("BRENT");if(Regex("war|missile|attack|geopolit|inflation|crisis").containsMatchIn(t))out.add("GOLD");if(Regex("fed|rates|inflation|jobs|payroll|tariff").containsMatchIn(t)){out.add("SPX");out.add("NDX");out.add("DXY")};if(Regex("bitcoin|crypto").containsMatchIn(t)){out.add("BTC");out.add("ETH")};if(Regex("ecb|euro").containsMatchIn(t))out.add("EURUSD");return out}
     private fun parseTime(s:String):Long=try{Instant.parse(s).toEpochMilli()}catch(_:Exception){0L}

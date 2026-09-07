@@ -5,7 +5,7 @@ on:
     paths:
       - '.github/workflows/ecrintel-image-test.yml'
       - 'scripts/update_intel.py'
-      - 'scripts/google_news_decoder.py'
+      - 'scripts/enrich_images.py'
 jobs:
   test:
     runs-on: ubuntu-latest
@@ -14,28 +14,28 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-      - name: Run intelligence publisher enrichment
+      - name: Generate intelligence snapshot
         run: python scripts/update_intel.py
-      - name: Validate output
+      - name: Enrich story images
+        run: python scripts/enrich_images.py
+      - name: Validate image output
         run: |
           python - <<'PY'
           import json,urllib.parse
           j=json.load(open('data/intel.json',encoding='utf-8'))
           events=j.get('events',[])
           images=[e for e in events if e.get('image')]
-          direct=[e for e in events if 'news.google.com' not in (e.get('url') or '')]
           keys=[]
           for e in images:
               p=urllib.parse.urlsplit(e['image'])
               keys.append((p.hostname or '')+(p.path or ''))
           unique=len(set(keys))
           print('EVENTS',len(events))
-          print('DIRECT_URLS',len(direct))
           print('IMAGES',len(images))
           print('UNIQUE_IMAGES',unique)
           print('COVERAGE',round(100*len(images)/max(1,len(events)),1))
-          for e in images[:10]: print('IMAGE_OK',e.get('source'),e.get('url'),e.get('image'))
+          for e in images[:10]: print('IMAGE_OK',e.get('source'),e.get('title'),e.get('imageMatchConfidence'),e.get('image'))
           assert events, 'No intelligence events generated'
-          assert len(direct) >= 10, 'Publisher URL decoding coverage is too low'
-          assert unique >= 5, 'Real article image coverage is too low'
+          assert len(images) >= 10, 'Story image coverage is too low'
+          assert unique >= 8, 'Story images are not diverse enough'
           PY

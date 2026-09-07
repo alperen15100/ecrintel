@@ -1,0 +1,28 @@
+name: ECRINTEL image pipeline test
+on:
+  push:
+    branches: [ ecrintel-intelligence-suite ]
+    paths: [ '.github/workflows/ecrintel-image-test.yml' ]
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Run intelligence image enrichment
+        run: python scripts/update_intel.py
+      - name: Validate output
+        run: |
+          python - <<'PY'
+          import json
+          j=json.load(open('data/intel.json',encoding='utf-8'))
+          events=j.get('events',[])
+          images=[e for e in events if e.get('image')]
+          print('EVENTS',len(events))
+          print('IMAGES',len(images))
+          print('COVERAGE',round(100*len(images)/max(1,len(events)),1))
+          for e in images[:10]: print('IMAGE_OK',e.get('source'),e.get('image'))
+          assert events, 'No intelligence events generated'
+          PY

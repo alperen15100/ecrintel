@@ -1,0 +1,22 @@
+name: ECRINTEL mobile validation
+on:
+  push:
+    branches: [ ecrintel-intelligence-suite ]
+    paths:
+      - 'android/app/src/main/assets/ecrintel-premium-v3.js'
+      - 'android/app/src/main/assets/ecrintel-premium-v3.css'
+      - 'android/app/src/main/assets/ecrintel-product-v4.css'
+      - '.github/workflows/ecrintel-mobile-validate.yml'
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Validate mobile JavaScript syntax
+        run: node --check android/app/src/main/assets/ecrintel-premium-v3.js
+      - name: Validate required product hooks
+        run: |
+          grep -q "24H Intelligence Brief" android/app/src/main/assets/ecrintel-premium-v3.js
+          grep -q "Saved Intelligence" android/app/src/main/assets/ecrintel-premium-v3.js
+          grep -q "DATA DELAYED" android/app/src/main/assets/ecrintel-premium-v3.js
+          grep -q "mobileIntelHub" android/app/src/main/assets/ecrintel-product-v4.css

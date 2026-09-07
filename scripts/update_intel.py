@@ -2,16 +2,21 @@ import json,re,urllib.request,urllib.parse,xml.etree.ElementTree as ET,hashlib,h
 from datetime import datetime,timezone
 from pathlib import Path
 from email.utils import parsedate_to_datetime
-from google_news_decoder import decode_google_news_urls
 
 QUERIES=[
  ("geopolitics","Iran Israel conflict OR missile OR ceasefire when:1d"),("geopolitics","Ukraine Russia war OR strike OR sanctions when:1d"),("geopolitics","China Taiwan military OR trade tensions when:1d"),("geopolitics","Red Sea shipping attack OR Hormuz tanker when:1d"),("geopolitics","sanctions tariffs geopolitical markets when:1d"),
  ("energy","oil OPEC production prices when:1d"),("energy","tanker shipping Hormuz Red Sea oil when:1d"),("energy","gas pipeline refinery disruption when:1d"),("energy","Brent WTI supply disruption when:1d"),
  ("macro","Federal Reserve rates inflation jobs when:1d"),("macro","ECB rates inflation euro area when:1d"),("macro","Bank of England rates inflation UK when:1d"),("macro","Bank of Japan yen rates inflation when:1d"),("macro","CPI GDP payrolls tariffs markets when:1d")]
+GDELT_QUERIES={
+ "geopolitics":'(Iran OR Israel OR Ukraine OR Russia OR Taiwan OR Hormuz OR "Red Sea" OR sanctions OR tariffs) sourcelang:english',
+ "energy":'(oil OR OPEC OR Brent OR WTI OR tanker OR pipeline OR refinery OR "natural gas") sourcelang:english',
+ "macro":'("Federal Reserve" OR ECB OR "Bank of England" OR "Bank of Japan" OR inflation OR CPI OR GDP OR payrolls OR tariffs) sourcelang:english'
+}
 LOCATIONS={"iran":(32,53),"israel":(31.5,34.8),"gaza":(31.4,34.4),"ukraine":(49,32),"russia":(55,37),"china":(35,103),"taiwan":(23.7,121),"japan":(36,138),"india":(22,79),"pakistan":(30,69),"turkey":(39,35),"türkiye":(39,35),"syria":(35,38),"iraq":(33,44),"saudi":(24,45),"yemen":(15.5,48),"qatar":(25.3,51.2),"uae":(24,54),"dubai":(25.2,55.3),"europe":(50,10),"germany":(51,10),"france":(46,2),"uk":(54,-2),"britain":(54,-2),"united states":(39,-98),"washington":(38.9,-77),"new york":(40.7,-74),"middle east":(29,45),"red sea":(20,38),"hormuz":(26.5,56.3),"persian gulf":(26,52),"black sea":(43,35),"taiwan strait":(24.5,119.5),"hong kong":(22.3,114.2),"south korea":(36,128),"north korea":(40,127)}
+STOP={"the","and","for","with","from","that","this","into","over","after","before","amid","says","say","how","why","what","when","where","will","could","would","about","latest","live","news","update","updates","today","report","reports","analysis"}
 
 def get(url,timeout=20):
- req=urllib.request.Request(url,headers={"User-Agent":"Mozilla/5.0 (compatible; ECRINTEL/2.4; +https://alperen15100.github.io/ecrintel/)","Accept":"text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8"})
+ req=urllib.request.Request(url,headers={"User-Agent":"Mozilla/5.0 (compatible; ECRINTEL/2.6; +https://alperen15100.github.io/ecrintel/)","Accept":"application/json,text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8"})
  with urllib.request.urlopen(req,timeout=timeout) as r:return r.read(),r.geturl(),r.headers.get("Content-Type","")
 def get_bytes(url):return get(url)[0]
 def loc(text):
@@ -26,9 +31,17 @@ def severity(title,cat):
  if cat=="geopolitics" and re.search(r'\b(ceasefire|nuclear|military|troops)\b',t):s+=1
  return min(9,s)
 def normalize(s):return re.sub(r'[^a-z0-9]+',' ',s.lower()).strip()
+def title_tokens(s):return set(x for x in normalize(s).split() if len(x)>2 and x not in STOP)
 def near_duplicate(a,b):
- A=set(x for x in normalize(a).split() if len(x)>3);B=set(x for x in normalize(b).split() if len(x)>3)
+ A=title_tokens(a);B=title_tokens(b)
  return bool(A and B) and len(A&B)/max(1,min(len(A),len(B)))>=0.72
+def title_match_score(a,b):
+ A=title_tokens(a);B=title_tokens(b)
+ if not A or not B:return 0
+ shared=len(A&B)
+ if shared<3:return 0
+ coverage=shared/max(1,min(len(A),len(B)));jacc=shared/max(1,len(A|B))
+ return coverage*.72+jacc*.28
 def classify_region(title,source=""):
  t=(str(title)+" "+str(source)).lower();rules=[("MIDDLE EAST",["iran","iranian","tehran","hormuz","persian gulf","israel","gaza","palestin","lebanon","syria","iraq","yemen","houthi","saudi","qatar","uae","dubai","oman","bahrain","kuwait","middle east"]),("EUROPE",["ukraine","ukrainian","kyiv","kiev","russia","russian","britain","british","england","united kingdom","boe","bank of england","europe","european","eurozone","euro area","ecb","germany","france","spain","spanish","italy","cyprus","greece","poland","netherlands","belgium","switzerland","norway","sweden","finland","denmark","portugal","austria","albania","serbia","romania","hungary","czech","slovakia"]),("ASIA",["china","chinese","taiwan","japan","japanese","boj","yen","south korea","korea","india","pakistan","bangladesh","indonesia","philippines","vietnam","thailand","malaysia","singapore","hong kong","west asia"]),("AMERICAS",["united states","u.s.","usa","american","federal reserve","fed ","fed,","fed's","fomc","wall street","new york","canada","mexico","brazil","venezuela","argentina","chile","colombia","peru","puerto rico","alaska"]),("AFRICA",["africa","african","south africa","nigeria","kenya","ethiopia","somalia","egypt","libya","sudan","morocco","algeria","tunisia","ghana","tanzania","uganda","congo"]),("OCEANIA",["australia","new zealand","fiji","papua new guinea"])]
  for region,terms in rules:
@@ -73,6 +86,20 @@ def page_image(url):
     if u and not is_google_asset(u):return u
  except Exception as e:print('IMAGE WARN',str(url)[:90],e)
  return ""
+def gdelt_articles(cat):
+ q=GDELT_QUERIES[cat]
+ url='https://api.gdeltproject.org/api/v2/doc/doc?'+urllib.parse.urlencode({'query':q,'timespan':'2d','mode':'artlist','maxrecords':'150','format':'json','sort':'date'})
+ try:
+  body,_,_=get(url,20);data=json.loads(body.decode('utf-8','ignore'));arts=data.get('articles') or []
+  print('GDELT',cat,len(arts));return arts
+ except Exception as e:print('GDELT WARN',cat,e);return []
+def best_gdelt(e,pool):
+ best=None;score=0
+ for a in pool:
+  s=title_match_score(e.get('title',''),a.get('title',''))
+  if s>score:best=a;score=s
+ # Strict enough to avoid attaching an unrelated article/image; exact/near-exact syndication titles score much higher.
+ return (best,score) if best and score>=0.66 else (None,score)
 
 events=[]
 for cat,q in QUERIES:
@@ -95,21 +122,28 @@ balanced=[]
 for cat in ("geopolitics","energy","macro"):balanced+=sorted([e for e in events if e["category"]==cat],key=lambda x:(x["severity"],x["time"]),reverse=True)[:30]
 events=sorted(balanced,key=lambda x:(x["severity"],x["time"]),reverse=True)[:80]
 
-# Resolve Google News wrappers to the publisher URL in one batch request. This improves source opening and enables article metadata images.
-decoded=decode_google_news_urls([e.get('url','') for e in events])
-for i,(e,direct_url) in enumerate(zip(events,decoded)):
- try:
-  host=(urllib.parse.urlsplit(direct_url).hostname or '').lower()
- except:host=''
- if direct_url.startswith(('http://','https://')) and host!='news.google.com':e['url']=direct_url
+# Preserve Google News RSS as the primary event feed. GDELT is metadata-only enrichment for strongly matching titles.
+gdelt={cat:gdelt_articles(cat) for cat in ('geopolitics','energy','macro')}
+hits=0
+for i,e in enumerate(events):
  candidate=e.get('image','')
  if is_google_asset(candidate):candidate=''
- # The mobile feed shows 30 stories; enrich 40 so visible cards and detail pages have headroom without making the 5-minute job too slow.
- if not candidate and i<40:candidate=page_image(e.get('url',''))
+ match,score=best_gdelt(e,gdelt.get(e['category'],[]))
+ if match:
+  direct=clean_image_url(match.get('url',''))
+  img=clean_image_url(match.get('socialimage',''))
+  if direct:e['url']=direct
+  if img and not is_google_asset(img):candidate=img
+  if not e.get('sourceUrl') and direct:
+   try:e['sourceUrl']='https://'+(urllib.parse.urlsplit(direct).hostname or '')
+   except:pass
+  hits+=1
+  e['matchConfidence']=round(score,3)
+ if not candidate and match and i<40:candidate=page_image(e.get('url',''))
  if is_google_asset(candidate):candidate=''
  e['image']=candidate
  if (i+1)%10==0:print('images',i+1,'/',len(events))
 Path("data").mkdir(exist_ok=True)
 Path("data/intel.json").write_text(json.dumps({"updatedAt":datetime.now(timezone.utc).isoformat().replace("+00:00","Z"),"counts":{c:sum(1 for e in events if e["category"]==c) for c in ("geopolitics","energy","macro")},"events":events},ensure_ascii=False,indent=2),encoding="utf-8")
 imgs=[e.get('image') for e in events if e.get('image')];unique=len(set(image_key(x) for x in imgs));direct=sum(1 for e in events if 'news.google.com' not in e.get('url',''))
-print("intel",len(events),"directUrls",direct,"images",len(imgs),"uniqueImages",unique,{c:sum(1 for e in events if e["category"]==c) for c in ("geopolitics","energy","macro")})
+print("intel",len(events),"gdeltMatches",hits,"directUrls",direct,"images",len(imgs),"uniqueImages",unique,{c:sum(1 for e in events if e["category"]==c) for c in ("geopolitics","energy","macro")})

@@ -1,18 +1,27 @@
 name: ECRINTEL data engine
 on:
   workflow_dispatch:
+  push:
+    branches: [ main ]
+    paths:
+      - 'scripts/update_intel.py'
+      - 'scripts/update_markets.py'
+      - 'scripts/update_calendar.py'
+      - '.github/workflows/ecrintel-data.yml'
   schedule:
-    - cron: "*/15 * * * *"
+    - cron: "*/5 * * * *"
 permissions:
   contents: write
 concurrency:
   group: ecrintel-data-engine
-  cancel-in-progress: false
+  cancel-in-progress: true
 jobs:
   update:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: main
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
@@ -20,8 +29,15 @@ jobs:
         run: python scripts/update_markets.py
       - name: Update intelligence
         run: python scripts/update_intel.py
-      - name: Update macro calendar
-        run: python scripts/update_calendar.py
+      - name: Update macro calendar when stale
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import subprocess,time
+          p=Path('data/calendar.json')
+          if not p.exists() or time.time()-p.stat().st_mtime>21600:
+              subprocess.check_call(['python','scripts/update_calendar.py'])
+          PY
       - name: Commit data snapshot
         run: |
           git config user.name "ecrintel-bot"
@@ -30,4 +46,4 @@ jobs:
           git diff --cached --quiet && exit 0
           git commit -m "data: refresh ECRINTEL"
           git pull --rebase origin main
-          git push
+          git push origin HEAD:main

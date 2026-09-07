@@ -10,7 +10,7 @@ QUERIES=[
 LOCATIONS={"iran":(32,53),"israel":(31.5,34.8),"gaza":(31.4,34.4),"ukraine":(49,32),"russia":(55,37),"china":(35,103),"taiwan":(23.7,121),"japan":(36,138),"india":(22,79),"pakistan":(30,69),"turkey":(39,35),"türkiye":(39,35),"syria":(35,38),"iraq":(33,44),"saudi":(24,45),"yemen":(15.5,48),"qatar":(25.3,51.2),"uae":(24,54),"dubai":(25.2,55.3),"europe":(50,10),"germany":(51,10),"france":(46,2),"uk":(54,-2),"britain":(54,-2),"united states":(39,-98),"washington":(38.9,-77),"new york":(40.7,-74),"middle east":(29,45),"red sea":(20,38),"hormuz":(26.5,56.3),"persian gulf":(26,52),"black sea":(43,35),"taiwan strait":(24.5,119.5),"hong kong":(22.3,114.2),"south korea":(36,128),"north korea":(40,127)}
 
 def get(url,timeout=20):
- req=urllib.request.Request(url,headers={"User-Agent":"Mozilla/5.0 (compatible; ECRINTEL/2.1; +https://alperen15100.github.io/ecrintel/)","Accept":"text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8"})
+ req=urllib.request.Request(url,headers={"User-Agent":"Mozilla/5.0 (compatible; ECRINTEL/2.2; +https://alperen15100.github.io/ecrintel/)","Accept":"text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8"})
  with urllib.request.urlopen(req,timeout=timeout) as r:return r.read(),r.geturl(),r.headers.get("Content-Type","")
 def get_bytes(url):return get(url)[0]
 def loc(text):
@@ -39,14 +39,20 @@ def clean_image_url(value,base=""):
  if value.startswith('//'):value='https:'+value
  value=urllib.parse.urljoin(base,value)
  return value if value.startswith(('https://','http://')) else ""
+def google_host(url):
+ try:return urllib.parse.urlparse(url).hostname in ('news.google.com','www.google.com','google.com')
+ except:return False
+def image_key(url):
+ if not url:return ''
+ try:
+  p=urllib.parse.urlsplit(url)
+  return (p.hostname or '')+(p.path or '')
+ except:return url
 def rss_image(item):
- # Supports common RSS/Media RSS image fields without changing the existing feed contract.
  for el in list(item):
   tag=el.tag.lower()
   if tag.endswith('content') or tag.endswith('thumbnail') or tag.endswith('enclosure'):
-   u=clean_image_url(el.attrib.get('url',''))
-   typ=(el.attrib.get('type') or '').lower()
-   medium=(el.attrib.get('medium') or '').lower()
+   u=clean_image_url(el.attrib.get('url',''));typ=(el.attrib.get('type') or '').lower();medium=(el.attrib.get('medium') or '').lower()
    if u and (not typ or typ.startswith('image/') or medium=='image' or re.search(r'\.(jpe?g|png|webp)(?:\?|$)',u,re.I)):return u
  desc=item.findtext('description') or ''
  m=re.search(r'<img[^>]+src=["\']([^"\']+)',desc,re.I)
@@ -86,11 +92,23 @@ for cat,q in QUERIES:
 balanced=[]
 for cat in ("geopolitics","energy","macro"):balanced+=sorted([e for e in events if e["category"]==cat],key=lambda x:(x["severity"],x["time"]),reverse=True)[:30]
 events=sorted(balanced,key=lambda x:(x["severity"],x["time"]),reverse=True)[:80]
-# Only enrich the final selected stories. Failure is non-fatal and leaves image empty, so news data still publishes.
+# Google News often emits one generic thumbnail for many unrelated stories. Detect repeated keys first.
+keys={}
+for e in events:
+ k=image_key(e.get('image',''))
+ if k:keys[k]=keys.get(k,0)+1
 for i,e in enumerate(events):
- if not e.get('image'):
-  e['image']=page_image(e.get('url',''))
+ candidate=e.get('image','');k=image_key(candidate)
+ # A thumbnail repeated across unrelated stories is treated as a placeholder.
+ if candidate and keys.get(k,0)>=3:candidate=''
+ # Prefer publisher/article metadata whenever RSS image is missing or generic.
+ if not candidate:
+  candidate=page_image(e.get('url',''))
+ # If the resolved page is still Google News and yields a repeated Google asset, leave it empty.
+ if candidate and image_key(candidate) in keys and keys.get(image_key(candidate),0)>=3:candidate=''
+ e['image']=candidate
  if (i+1)%10==0:print('images',i+1,'/',len(events))
 Path("data").mkdir(exist_ok=True)
 Path("data/intel.json").write_text(json.dumps({"updatedAt":datetime.now(timezone.utc).isoformat().replace("+00:00","Z"),"counts":{c:sum(1 for e in events if e["category"]==c) for c in ("geopolitics","energy","macro")},"events":events},ensure_ascii=False,indent=2),encoding="utf-8")
-print("intel",len(events),"images",sum(1 for e in events if e.get('image')),{c:sum(1 for e in events if e["category"]==c) for c in ("geopolitics","energy","macro")})
+imgs=[e.get('image') for e in events if e.get('image')];unique=len(set(image_key(x) for x in imgs))
+print("intel",len(events),"images",len(imgs),"uniqueImages",unique,{c:sum(1 for e in events if e["category"]==c) for c in ("geopolitics","energy","macro")})

@@ -2,22 +2,51 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#090B0E">
+    android:background="#071019">
 
     <WebView
         android:id="@+id/webView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#090B0E" />
+        android:background="#071019"
+        android:visibility="invisible" />
 
-    <ProgressBar
-        android:id="@+id/progress"
-        style="?android:attr/progressBarStyleHorizontal"
+    <LinearLayout
+        android:id="@+id/startupPanel"
         android:layout_width="match_parent"
-        android:layout_height="2dp"
-        android:layout_gravity="top"
-        android:max="100"
-        android:progress="0" />
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="32dp"
+        android:background="#071019">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ECRINTEL"
+            android:textColor="#F4F7FB"
+            android:textStyle="bold"
+            android:letterSpacing="0.08"
+            android:textSize="28sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="7dp"
+            android:text="GLOBAL MARKET INTELLIGENCE"
+            android:textColor="#718096"
+            android:letterSpacing="0.14"
+            android:textSize="9sp" />
+
+        <ProgressBar
+            android:id="@+id/progress"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="160dp"
+            android:layout_height="2dp"
+            android:layout_marginTop="28dp"
+            android:max="100"
+            android:progress="0" />
+    </LinearLayout>
 
     <LinearLayout
         android:id="@+id/errorPanel"
@@ -26,14 +55,14 @@
         android:gravity="center"
         android:orientation="vertical"
         android:padding="28dp"
-        android:background="#090B0E"
+        android:background="#071019"
         android:visibility="gone">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="ECRINTEL"
-            android:textColor="#FFFFFF"
+            android:textColor="#F4F7FB"
             android:textStyle="bold"
             android:textSize="24sp" />
 
@@ -43,8 +72,8 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
             android:gravity="center"
-            android:text="ECRINTEL couldn't connect."
-            android:textColor="#AAB2BD"
+            android:text="Connection unavailable"
+            android:textColor="#8C99AA"
             android:textSize="14sp" />
 
         <Button

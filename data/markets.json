@@ -1,58 +1,58 @@
 {
-  "updatedAt": "2026-09-10T11:13:58.188393Z",
+  "updatedAt": "2026-09-10T15:02:12.352692Z",
   "markets": [
     {
       "symbol": "BTC",
-      "priceDisplay": "$77,852",
-      "change": -3.11,
+      "priceDisplay": "$77,269",
+      "change": -3.83,
       "source": "Global feed"
     },
     {
       "symbol": "ETH",
-      "priceDisplay": "$2,460.30",
-      "change": -2.16,
+      "priceDisplay": "$2,438.85",
+      "change": -3.01,
       "source": "Global feed"
     },
     {
       "symbol": "GOLD",
-      "priceDisplay": "$4,425.30",
-      "change": -0.1,
+      "priceDisplay": "$4,401.20",
+      "change": -0.65,
       "source": "Global feed"
     },
     {
       "symbol": "BRENT",
-      "priceDisplay": "$102.32",
-      "change": 6.27,
+      "priceDisplay": "$105.36",
+      "change": 9.43,
       "source": "Global feed"
     },
     {
       "symbol": "WTI",
-      "priceDisplay": "$97.56",
-      "change": 6.65,
+      "priceDisplay": "$99.92",
+      "change": 9.23,
       "source": "Global feed"
     },
     {
       "symbol": "S&P500",
-      "priceDisplay": "7,636.36",
-      "change": 0.06,
+      "priceDisplay": "7,601.30",
+      "change": -0.85,
       "source": "Global feed"
     },
     {
       "symbol": "NASDAQ",
-      "priceDisplay": "26,253.34",
-      "change": 0.59,
+      "priceDisplay": "26,139.44",
+      "change": -0.3,
       "source": "Global feed"
     },
     {
       "symbol": "DXY",
-      "priceDisplay": "98.90",
-      "change": -0.27,
+      "priceDisplay": "98.92",
+      "change": -0.25,
       "source": "Global feed"
     },
     {
       "symbol": "EUR/USD",
-      "priceDisplay": "1.1628",
-      "change": 0.0,
+      "priceDisplay": "1.1631",
+      "change": 0.03,
       "source": "Global feed"
     },
     {
@@ -63,20 +63,20 @@
     },
     {
       "symbol": "DAX",
-      "priceDisplay": "25,571.52",
-      "change": -1.66,
+      "priceDisplay": "25,386.89",
+      "change": -2.37,
       "source": "Global feed"
     },
     {
       "symbol": "FTSE",
-      "priceDisplay": "10,625.65",
-      "change": -1.9,
+      "priceDisplay": "10,600.14",
+      "change": -2.14,
       "source": "Global feed"
     },
     {
       "symbol": "HANG SENG",
-      "priceDisplay": "25,275.00",
-      "change": 0.24,
+      "priceDisplay": "24,954.47",
+      "change": -1.03,
       "source": "Global feed"
     }
   ]

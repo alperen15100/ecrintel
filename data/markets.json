@@ -1,34 +1,34 @@
 {
-  "updatedAt": "2026-09-11T01:05:48.949441Z",
+  "updatedAt": "2026-09-11T05:56:39.590529Z",
   "markets": [
     {
       "symbol": "BTC",
-      "priceDisplay": "$76,926",
-      "change": -2.77,
+      "priceDisplay": "$77,199",
+      "change": -2.42,
       "source": "Global feed"
     },
     {
       "symbol": "ETH",
-      "priceDisplay": "$2,457.27",
-      "change": -1.35,
+      "priceDisplay": "$2,465.92",
+      "change": -1.01,
       "source": "Global feed"
     },
     {
       "symbol": "GOLD",
-      "priceDisplay": "$4,373.70",
-      "change": -1.27,
+      "priceDisplay": "$4,384.70",
+      "change": -0.21,
       "source": "Global feed"
     },
     {
       "symbol": "BRENT",
-      "priceDisplay": "$108.53",
-      "change": 12.72,
+      "priceDisplay": "$105.60",
+      "change": 7.84,
       "source": "Global feed"
     },
     {
       "symbol": "WTI",
-      "priceDisplay": "$103.30",
-      "change": 12.92,
+      "priceDisplay": "$101.11",
+      "change": 8.69,
       "source": "Global feed"
     },
     {
@@ -45,20 +45,20 @@
     },
     {
       "symbol": "DXY",
-      "priceDisplay": "99.07",
-      "change": -0.09,
+      "priceDisplay": "99.03",
+      "change": 0.2,
       "source": "Global feed"
     },
     {
       "symbol": "EUR/USD",
-      "priceDisplay": "1.1618",
-      "change": 0.03,
+      "priceDisplay": "1.1614",
+      "change": 0.0,
       "source": "Global feed"
     },
     {
       "symbol": "NIKKEI",
-      "priceDisplay": "63,378.14",
-      "change": -4.55,
+      "priceDisplay": "63,857.02",
+      "change": -3.83,
       "source": "Global feed"
     },
     {
@@ -75,8 +75,8 @@
     },
     {
       "symbol": "HANG SENG",
-      "priceDisplay": "24,954.47",
-      "change": -1.03,
+      "priceDisplay": "24,816.45",
+      "change": -3.25,
       "source": "Global feed"
     }
   ]

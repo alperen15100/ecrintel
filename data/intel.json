@@ -1,9 +1,9 @@
 {
-  "updatedAt": "2026-09-11T18:25:07.582092Z",
+  "updatedAt": "2026-09-11T21:10:20.635857Z",
   "counts": {
     "geopolitics": 30,
-    "energy": 20,
-    "macro": 30
+    "energy": 22,
+    "macro": 28
   },
   "events": [
     {
@@ -11,9 +11,9 @@
       "category": "macro",
       "type": "macro",
       "title": "Inflation held steady in August as Iran war surges oil prices",
-      "source": "abc27.com",
+      "source": "ABC27",
       "sources": [
-        "abc27.com"
+        "ABC27"
       ],
       "sourceCount": 1,
       "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxOWUExQUF1T0ZQVVBRaVM1VmxCckFjU19pTWxVVnBFWDRvZHc5dExoNFZEVTRLdUN4U1V0TzBEdFZrZFdUSHNNNmxYOWp3a05IY24wbWFyVXlXR25JMHRLT3UycUw4WFRES1A2LUVUaEE3RGt1SEhhRGttNDBMNGZhVWpadkU5azhWZ0pKNVBLVEtXc2w0X0J4Z9IBmAFBVV95cUxOWUExQUF1T0ZQVVBRaVM1VmxCckFjU19pTWxVVnBFWDRvZHc5dExoNFZEVTRLdUN4U1V0TzBEdFZrZFdUSHNNNmxYOWp3a05IY24wbWFyVXlXR25JMHRLT3UycUw4WFRES1A2LUVUaEE3RGt1SEhhRGttNDBMNGZhVWpadkU5azhWZ0pKNVBLVEtXc2w0X0J4Zw?oc=5",
@@ -30,9 +30,9 @@
       "category": "macro",
       "type": "macro",
       "title": "European Central Bank Raises Benchmark Rate to 2.50% in Berlin Amid Iran War Inflation Concerns",
-      "source": "NewsCord",
+      "source": "newscord.org",
       "sources": [
-        "NewsCord"
+        "newscord.org"
       ],
       "sourceCount": 1,
       "url": "https://news.google.com/rss/articles/CBMi6gFBVV95cUxQVEY3MWpmeWIwTkVQT0lrZERMT01PZ2p1WEhhT2V0S2RGTEhXTVhGU0dGWWRtQ2VERFBQVTk4RkJYVnJYOTFoVEg3OVhaeVIzaUpzOHFFOWJ2QngwSzk4dmdEYnJXbDVITFJyZ3JjR2hlVnVmcHk4TlBCWndqUThLd2N5MkZhTFRjWVp5NGRRQ3NzaE1Ddl9WMDhrNmNMUmY5ZjRCMFp5aE5XX0ExS3ZWVVNqZzJIT0hIcEdOOE5GVlhaMnBfc3lQUUV1ZFhyQWEtTjdMME83M1hYcl9Ka01sSlh3QnM2NjVlWHc?oc=5",
@@ -64,6 +64,102 @@
       "description": "Public news signal aggregated from current RSS sources."
     },
     {
+      "id": "6aac3a6bb793",
+      "category": "geopolitics",
+      "type": "geopolitics",
+      "title": "How many Russian soldiers died in the war with Ukraine",
+      "source": "Mediazona",
+      "sources": [
+        "Mediazona"
+      ],
+      "sourceCount": 1,
+      "url": "https://news.google.com/rss/articles/CBMia0FVX3lxTE95WTVTQkRHVHNQaFZ4R2xNY2U5bEF4NkZjOTdTTlVRX2N6OUVaYVZvR2VWOGFjN05NZEhWZDN4MG14ZUxRSmpveEJtR1ZZN3F3SlNhWEpzOXU4X1A3anNBRVZYeXRJM21HWnNB?oc=5",
+      "image": "",
+      "time": "2026-09-11T20:25:59Z",
+      "severity": 7,
+      "lat": 49,
+      "lon": 32,
+      "region": "EUROPE",
+      "description": "Public news signal aggregated from current RSS sources."
+    },
+    {
+      "id": "b09fe1318864",
+      "category": "geopolitics",
+      "type": "geopolitics",
+      "title": "Yemen's Iranian-backed Houthis seize an island in a key strait, opening a new front in Iran war - The Tribune-Democrat",
+      "source": "The Tribune-Democrat",
+      "sources": [
+        "The Tribune-Democrat",
+        "PBS"
+      ],
+      "sourceCount": 2,
+      "url": "https://news.google.com/rss/articles/CBMiggJBVV95cUxOVjJ4V1hGaVZDVTdSWmQ3aTluTHRsbHplZHdNYTgycHZIOHlSRms0aHJWVXFrX2VoRW94ajhJbG5iN0tHMkE0eUlHdS1jTGtCTVlFUVZBbTFLNGR3VE5nWm10VS13TGZoZlBXYXJiVmk4VUN0WV9iMmRnZW5Td1IyTjNvN3BKd1Q4eFNnX0NtaVRjN0JZZFhZNGtHY3RURFNsb3ZfdnJJT0lSSnZHRTBYQ0dnUVBlRVl4THdOa0N1SzVGZ2dPMkhGaEZ3QjR0dWdDbmRJMnJqTGpNUGZES2hwNkhXMVZRUkw0VFVfZzVCcWdWWVh5X045S191MTJ1eGk3SlE?oc=5",
+      "image": "",
+      "time": "2026-09-11T19:52:00Z",
+      "severity": 7,
+      "lat": 15.5,
+      "lon": 48,
+      "region": "MIDDLE EAST",
+      "description": "Public news signal aggregated from current RSS sources."
+    },
+    {
+      "id": "8e90d29827b4",
+      "category": "geopolitics",
+      "type": "geopolitics",
+      "title": "Top Ukrainian official gives inside look at the war with Russia",
+      "source": "The Hill",
+      "sources": [
+        "The Hill"
+      ],
+      "sourceCount": 1,
+      "url": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxQeU9ibUJwemhqcktXVUI1NGlad2FMQ1kyOWxwX3UxWE5hbU56N1BNbU1DRDZOSURVNTlDV2RRTFJXX050dXpBYVFZb3VGaWl6WHlOVU8zUW9hMVNlWUwyVjZTOThSSGd5N1doZzdveUhaSkNXRkxFX3dHbEdNQjFKUGI2YVNodGh2dURKVnp3RTViVGZDRVBjMm5kaExkb21DNm1hbng5S21jSDZDY05ac3gyNVViYm00TTRSOFdVaXpSS2vSAcgBQVVfeXFMT0hrVnlKaW1NSDU1SXBadEQyVWJSdDRnV01TWFRNU1J4Ty1XWm1xb25KcnFDcGVTVUpwOEhOT0RPTEc1cUxKN2I4RDJSelhiX1JDenppOWlyX1ZDZXZ4bGlrc29ZdWRhSmxiZE5ldWl4ZkIycGE0R1NvVVZVRWFYMHFoTUQwak10OXdBRGJDUmF0TUZ6UXZzSTMxdmgzbWxYZzZwT1hGaUdJYjBHWnBBS296OVhVc2hCVm5XbEhxdS1zSFRqY1NicXU?oc=5",
+      "image": "",
+      "time": "2026-09-11T18:24:00Z",
+      "severity": 7,
+      "lat": 55,
+      "lon": 37,
+      "region": "EUROPE",
+      "description": "Public news signal aggregated from current RSS sources."
+    },
+    {
+      "id": "ce21bf9f3dac",
+      "category": "geopolitics",
+      "type": "geopolitics",
+      "title": "Claude AI used for missile, influence projects in UAE, Iran, Yemen: Anthropic - Al-Monitor",
+      "source": "Al-Monitor",
+      "sources": [
+        "Al-Monitor"
+      ],
+      "sourceCount": 1,
+      "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxNSjVKNVNobURlVkh5bW8zRldzVUNWRVUweF82QXp3bGRiZ1J5YWEwZlk2bnFHY1JlVFZqV2VTU2NoVWd5TDB0WlFKLS1CRDlPcjg3U3dheldoNml3RkR2WG9zQXFJc2tEVVBCNDlFQWFMWmsyUDFGY0F0YlB5UXB3SE1hLUw3dEFuRW1CZ3VuX2xVYWI4SzRpYkdubzllWFMteG5sbTd5V2JqWVFZTERyXw?oc=5",
+      "image": "",
+      "time": "2026-09-11T18:00:15Z",
+      "severity": 7,
+      "lat": 15.5,
+      "lon": 48,
+      "region": "MIDDLE EAST",
+      "description": "Public news signal aggregated from current RSS sources."
+    },
+    {
+      "id": "2d5a97c1c36c",
+      "category": "geopolitics",
+      "type": "geopolitics",
+      "title": "Iran launches missile and drone attacks across Gulf as Israel strikes Tehran infrastructure | Akashvani News",
+      "source": "News On AIR",
+      "sources": [
+        "News On AIR"
+      ],
+      "sourceCount": 1,
+      "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxQYmFtdmtoamYyU2taWm5uSUp0LWxRR3p3bGszYjhPT0tnNmoweWI3eWtjcnlmRzRqTmtJdWRYTU55Ym5zY0xkTVJOdlRSUVduWjVSSGRndlJwSThXSU9qOW50ejUxWTNjRUZPbkpxZHZBd1RoVUV0V2gtSmZycEZTeFlfejZfOEtNbjYxUF9VYnpHTURxZ3E2dkU3Z1FQOUtpZFM2MVdRdnNGc25RajFhdzlnQlZzbVh4?oc=5",
+      "image": "",
+      "time": "2026-09-11T17:51:15Z",
+      "severity": 7,
+      "lat": 31.5,
+      "lon": 34.8,
+      "region": "MIDDLE EAST",
+      "description": "Public news signal aggregated from current RSS sources."
+    },
+    {
       "id": "fef0e94b10d6",
       "category": "geopolitics",
       "type": "geopolitics",
@@ -83,22 +179,41 @@
       "description": "Public news signal aggregated from current RSS sources."
     },
     {
-      "id": "6aac3a6bb793",
+      "id": "c64f032f77d1",
       "category": "geopolitics",
       "type": "geopolitics",
-      "title": "How many Russian soldiers died in the war with Ukraine",
-      "source": "en.zona.media",
+      "title": "Oil Rises as US-Iran Tension Escalates After Iraq Strikes, Missile Attack",
+      "source": "EnergyNow.com",
       "sources": [
-        "en.zona.media"
+        "EnergyNow.com"
       ],
       "sourceCount": 1,
-      "url": "https://news.google.com/rss/articles/CBMia0FVX3lxTE95WTVTQkRHVHNQaFZ4R2xNY2U5bEF4NkZjOTdTTlVRX2N6OUVaYVZvR2VWOGFjN05NZEhWZDN4MG14ZUxRSmpveEJtR1ZZN3F3SlNhWEpzOXU4X1A3anNBRVZYeXRJM21HWnNB?oc=5",
+      "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxORTlINWVEOWkyeUtSTFBPenRWZER6ODRPeDkyMUJYSWhKTzYxTDlZWVduUUV5akpXdjhWNGQ0RDMyamZjRTZBNWdYOW1wdWlmNkczU1JZb1VHY3hic0dsRWVpcFk1Wkh4UXJHY1dRNkJWeVNLV0ZxemdnVXg5cUVobm50dllEaG1hWGEzV2F1RE9XVm1neFVzUzlsWDc4TEY0a0ZVeVZB?oc=5",
       "image": "",
-      "time": "2026-09-11T17:23:09Z",
+      "time": "2026-09-11T17:19:56Z",
       "severity": 7,
-      "lat": 49,
-      "lon": 32,
-      "region": "EUROPE",
+      "lat": 32,
+      "lon": 53,
+      "region": "MIDDLE EAST",
+      "description": "Public news signal aggregated from current RSS sources."
+    },
+    {
+      "id": "09b58a56d75f",
+      "category": "geopolitics",
+      "type": "geopolitics",
+      "title": "Iran resumes ballistic missile production",
+      "source": "AzerNews",
+      "sources": [
+        "AzerNews"
+      ],
+      "sourceCount": 1,
+      "url": "https://news.google.com/rss/articles/CBMiVEFVX3lxTE5ZOFRwY3A3Z3NzRmRLVjZpZzY0OGR4UFBNSUppbU8ycDlOdW9Bbzg5b0hnNDBkbmFlRHZxeGFYZjNzc1p6cDhkTk9KYmcyOVJ0enhwZQ?oc=5",
+      "image": "",
+      "time": "2026-09-11T16:20:00Z",
+      "severity": 7,
+      "lat": 32,
+      "lon": 53,
+      "region": "MIDDLE EAST",
       "description": "Public news signal aggregated from current RSS sources."
     },
     {
@@ -125,9 +240,9 @@
       "category": "geopolitics",
       "type": "geopolitics",
       "title": "Ukraine: Russian strike on Kyiv gas station kills 2",
-      "source": "DW.com",
+      "source": "dw.com",
       "sources": [
-        "DW.com"
+        "dw.com"
       ],
       "sourceCount": 1,
       "url": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxPOUdxdnQtTUtDdnV5TUxVS0hWSmRobGRKM2pGYU90a3pWaHNlNWkxN1VmQnZhazlEZkpQdVMtTnBvR3gzM3JjblBGWWNDak5BNlZLT1V0YkgxTXJsMlcxSDhEbWdOaXBmY1o0NnNEdkVxUWlndnRDUFFpVTVGRUU1Vm8zOHFmY1MxVEhn0gGLAUFVX3lxTE8wbm1kRE5DZ1pQQVFPNFBRbkowYnJ3NGNkUGp2cHRTbS14Z2FIMW1ZU042TU9aYTZVelFTWFBsMm9YWnZYaExGQmFrVlhaU2xNdGFId2lFM29JNHZwVnpaWm55M0hob3ZLaUN5eWtQaGxNSV83c2JxRGREb2dGY2JqOG9mREZBX2NZeWs?oc=5",
@@ -140,32 +255,13 @@
       "description": "Public news signal aggregated from current RSS sources."
     },
     {
-      "id": "451d227474d1",
-      "category": "geopolitics",
-      "type": "geopolitics",
-      "title": "Yemen's Iranian-backed Houthis seize an island in a key strait, opening a new front in the Iran war",
-      "source": "PBS",
-      "sources": [
-        "PBS"
-      ],
-      "sourceCount": 1,
-      "url": "https://news.google.com/rss/articles/CBMizAFBVV95cUxPMXBHajBqdnlIX1hNMUpJVHRuSTV5RDRvT1lmR1ZPR1Nad3ZQaHZNTzNvVWtlN1lXNHZMWGlPLVVZMmNPb1poVkVldnJmNkxScHY5d01PUkk1NTd5YUNlaGNZMFNVT0ZzeE5aVXMxRW9jUXdEeEhmaWd2YjZfcTRZNGoyaW5ERUFYdUZXNDZlOUtmNUhrOU5sYUxrWURnN0VORVFkc2tvUVhxcWZ0WTlwUjVGVFZqT3MtTGdLU2lsblBndjhRYUtkQmxZNzDSAdIBQVVfeXFMTkFjcW9zZ1lqTDhaNmZwSU5OTTNET3RBU2QzZUg5OWszSGczcGJocFdZQVZwam40N1FkaGFnWkpjczFOSTNVNDRiRFBMc28teGNvX0VpNjdpY2xMeE5oUkRrcU1jMjdOam53SUwzeS16ck5nUGU1bDBQM2M4XzlxWkV5UWI0d0hJSU8yaEJNQ2pEMGJkNmdZTHlwX01HTGFrTUNqUUlHZFFsTkpYSUV4cGRZamtta3JrR2xNemJuN21wOFdJWks1Ti1UUHB0WHZUZXRR?oc=5",
-      "image": "",
-      "time": "2026-09-11T15:54:06Z",
-      "severity": 7,
-      "lat": 15.5,
-      "lon": 48,
-      "region": "MIDDLE EAST",
-      "description": "Public news signal aggregated from current RSS sources."
-    },
-    {
       "id": "5fad0e8a9460",
       "category": "geopolitics",
       "type": "geopolitics",
       "title": "Here’s a List of Gulf Energy Infrastructure Damaged in Iran War",
-      "source": "energynow.com",
+      "source": "EnergyNow.com",
       "sources": [
-        "energynow.com"
+        "EnergyNow.com"
       ],
       "sourceCount": 1,
       "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxONmpSQUpsbFBZdHJBVzE5RksxTlV3a01Mb0c1bHktX0RSeXhLR3c1bC1JZ3FBUUtWcEYzbkNWZEV1SXQ1QUl2LW1oR0VMa2lvQ0dycm1QMHRWQmpRUjNDOTlqZ2xoU2xkOWZab25sb1R6UW56QWJqb0h0NjRaX3RiOFpCQTc5UzQtRjlMWFBFWG9QazFHQnpHTg?oc=5",
@@ -194,25 +290,6 @@
       "lat": 32,
       "lon": 53,
       "region": "MIDDLE EAST",
-      "description": "Public news signal aggregated from current RSS sources."
-    },
-    {
-      "id": "b7bc9f697d4e",
-      "category": "geopolitics",
-      "type": "geopolitics",
-      "title": "Rescuing Art From Ukraine’s War Zones",
-      "source": "tol.org",
-      "sources": [
-        "tol.org"
-      ],
-      "sourceCount": 1,
-      "url": "https://news.google.com/rss/articles/CBMifEFVX3lxTE5CSEozMGd1YUp0MUF4YkJCanAzb3VYM0JSZVkwaEpMUm9XRWZJV1RhVXBvR2g0cGxLczdLVWtvek9CNDJvOEZTcm56ZWxYaVBmaF9FNzFkamlaaTl5NVgxNTBkY0V3TDJaNFBqTmRwdUJQY0Y4V0xHUExKa3Q?oc=5",
-      "image": "",
-      "time": "2026-09-11T14:53:42Z",
-      "severity": 7,
-      "lat": 49,
-      "lon": 32,
-      "region": "EUROPE",
       "description": "Public news signal aggregated from current RSS sources."
     },
     {
@@ -311,25 +388,6 @@
       "description": "Public news signal aggregated from current RSS sources."
     },
     {
-      "id": "89a1efd193a4",
-      "category": "geopolitics",
-      "type": "geopolitics",
-      "title": "Half a million Russians killed in Ukraine war, British intelligence says",
-      "source": "Sky News",
-      "sources": [
-        "Sky News"
-      ],
-      "sourceCount": 1,
-      "url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxPMURudUN5N1ZrX1Q0Q21rNkoyVWpOZG5LZ2lRTUxFTzJzTkFBLVE2cG1CdWtyMVdPX2NWOFdEM0RxMW11eXhuVVJwZEpsLWh4NVN1VTB2T2tvcG9SanBMclBfSjl0eHJKNmZkaks4MVF5eTFETjFrUVlzMlQtS2ZXS3lycFZHSlJBX1VwS2J5b21oTjNfV1BtVWlnb3l5VmxHeTkzbEJfSmhKdkk?oc=5",
-      "image": "",
-      "time": "2026-09-11T11:38:31Z",
-      "severity": 7,
-      "lat": 49,
-      "lon": 32,
-      "region": "EUROPE",
-      "description": "Public news signal aggregated from current RSS sources."
-    },
-    {
       "id": "e19c1fa57efb",
       "category": "geopolitics",
       "type": "geopolitics",
@@ -425,6 +483,25 @@
       "description": "Public news signal aggregated from current RSS sources."
     },
     {
+      "id": "c6298c289400",
+      "category": "geopolitics",
+      "type": "geopolitics",
+      "title": "America’s Missile Stockpile Crisis Deepens | Afterburner - MiGFlug's Magazine",
+      "source": "MiGFlug",
+      "sources": [
+        "MiGFlug"
+      ],
+      "sourceCount": 1,
+      "url": "https://news.google.com/rss/articles/CBMigwFBVV95cUxNQ2twMVE5OHlJWUFxbHZyZV96R2RfQmRHSkhRampTV28tMFU4STZYV2VrMExVUWNtaG9lcEtwT3BjTWtrNFlVRktrTnJFOTNvTlEzaExKWmk3aFZkWDVneUZVczRMYnBiNUtCRmEwX0RJS0JKOTFRZEZsQThPaHVqMV9zdw?oc=5",
+      "image": "",
+      "time": "2026-09-11T06:58:53Z",
+      "severity": 7,
+      "lat": null,
+      "lon": null,
+      "region": "GLOBAL",
+      "description": "Public news signal aggregated from current RSS sources."
+    },
+    {
       "id": "521d1cc14c72",
       "category": "geopolitics",
       "type": "geopolitics",
@@ -463,25 +540,6 @@
       "description": "Public news signal aggregated from current RSS sources."
     },
     {
-      "id": "2b6b3201fdf1",
-      "category": "geopolitics",
-      "type": "geopolitics",
-      "title": "2026 Iran war | Deal, Explained, United States, Israel, Strait of Hormuz, Map, & Conflict",
-      "source": "Britannica",
-      "sources": [
-        "Britannica"
-      ],
-      "sourceCount": 1,
-      "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE5nTzlhOGZTS180cWNtVG91c2VWRVJFYlk0cW5Ba1RHUEFOSEtldU15QktQT0EzRVY1ZVdZZ0VTRHVWTVhyN1IzeU1wbmlDMUhrQ3Roc1YxcmdMUQ?oc=5",
-      "image": "",
-      "time": "2026-09-11T05:00:00Z",
-      "severity": 7,
-      "lat": 39,
-      "lon": -98,
-      "region": "MIDDLE EAST",
-      "description": "Public news signal aggregated from current RSS sources."
-    },
-    {
       "id": "24da3355498a",
       "category": "geopolitics",
       "type": "geopolitics",
@@ -501,22 +559,79 @@
       "description": "Public news signal aggregated from current RSS sources."
     },
     {
-      "id": "b61b90f7d0b7",
-      "category": "geopolitics",
-      "type": "geopolitics",
-      "title": "Five killed and 67 injured in Russian strike on shopping centre, Ukraine says",
-      "source": "BBC",
+      "id": "5efd60e37a8c",
+      "category": "energy",
+      "type": "energy",
+      "title": "Saudi Arabia shut down East-West crude oil pipeline after multiple attacks",
+      "source": "CNBC",
       "sources": [
-        "BBC"
+        "CNBC"
       ],
       "sourceCount": 1,
-      "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE4wZ1I2cDl6cUFVQXozYjI3WmRUVTdOYTNvZ3JNcktjMjZUZHVUdEdPMmxNckIyenVKQlJxUEktRHFRR1QxVzlGQ0FMZ2NBZTkxOEJTVG1aaWI4Zw?oc=5",
+      "url": "https://news.google.com/rss/articles/CBMikgFBVV95cUxNYTlEWk83M3ZzR1Q5bW14a1FaUGZIWWM2T0dlUlJPdC1jaXh0UVFiZzgtU0tXdlp1TmZoN2FQejFMWlFITUh4a0tWUXo4YmNLaTVtZE9SMFcwVnd4YmdRUHpGUXRtZGI1bHRvMTlLczBDYjdpQ01SbzVydDVYLXp4eWZkQmZ0TlZOcklfd0twSVpGZ9IBlwFBVV95cUxOT2MxY0ZZQ2F5REZjZlB6cU83RnlyVmRMTy1jRGJDdUZqMnNMcS1ybUdlWDFGQ1hYV0dlbzJ3RFlDNE03NEFnUTRoU3hWOGdSUTJBNjc0WWFrNWg4LTRiVlBjZVliS1lBTUdkbFl6M2tIM1JtY2dPS3U5aGxFNjByNG1RV1EySk5NcFJ4bmZSazJibXBQQk40?oc=5",
       "image": "",
-      "time": "2026-09-10T22:36:02Z",
-      "severity": 7,
-      "lat": 49,
-      "lon": 32,
-      "region": "EUROPE",
+      "time": "2026-09-11T18:41:40Z",
+      "severity": 6,
+      "lat": 24,
+      "lon": 45,
+      "region": "MIDDLE EAST",
+      "description": "Public news signal aggregated from current RSS sources."
+    },
+    {
+      "id": "7e98768bf09d",
+      "category": "macro",
+      "type": "macro",
+      "title": "Japanese Yen rises as the Greenback's inflation bounce fades",
+      "source": "FXStreet",
+      "sources": [
+        "FXStreet"
+      ],
+      "sourceCount": 1,
+      "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxQXzRYeE1OQUM2OUVGTU5mbzB0VjJucU95MmxONjloWTAzdDFFUHd0WWNzVnR1MmxtODhxSzNVRmthVW90cUVZQUctX3dBX1FMdHlCVm8yaDAzMmpsSFNLN3Rublh6MFF3ZlNab1ZuekNhV2VKYWlCLUVUZDVDRFhMZVk1OHZ3ZExwUS1ZMTFEN25qTHhuS2RXcnVTZUpOS2V3U2h4aw?oc=5",
+      "image": "",
+      "time": "2026-09-11T18:37:47Z",
+      "severity": 6,
+      "lat": 36,
+      "lon": 138,
+      "region": "ASIA",
+      "description": "Public news signal aggregated from current RSS sources."
+    },
+    {
+      "id": "269abf998331",
+      "category": "energy",
+      "type": "energy",
+      "title": "Venezuela's withdrawal from OPEC gains traction in the oil",
+      "source": "Inspenet",
+      "sources": [
+        "Inspenet"
+      ],
+      "sourceCount": 1,
+      "url": "https://news.google.com/rss/articles/CBMic0FVX3lxTE5Ic05DVGZPeUJyQU9nNzlrVFgzQWdFNTdVZFdEb0pRMGFYN0lRUHcwWW13ZlNUQnUtamVwdGUtT3p1X2h0SnRMbzVGLVY3dzlqS09hSF9BRFpyOWZ4Q0dvRExCT0poVTZKTWlqUjRZQW1GZ00?oc=5",
+      "image": "",
+      "time": "2026-09-11T18:00:00Z",
+      "severity": 6,
+      "lat": null,
+      "lon": null,
+      "region": "AMERICAS",
+      "description": "Public news signal aggregated from current RSS sources."
+    },
+    {
+      "id": "6c64a032f8c6",
+      "category": "geopolitics",
+      "type": "geopolitics",
+      "title": "Oil Falls After Lebanon and Israel Agree to Ceasefire",
+      "source": "EnergyNow.com",
+      "sources": [
+        "EnergyNow.com"
+      ],
+      "sourceCount": 1,
+      "url": "https://news.google.com/rss/articles/CBMijAFBVV95cUxPeWdNNFhOakNzanM4OEJDMDJ0SnFnYTNzb2hjV3VjVzdua0VXWS1maXZqNnBOX0h3WEdwb2I4NGRDSllZMlBjalQ2OE95NDFKUGdDWGZjbWNNX0tPaVN1OVRMWVlWNlB1OURmRS1Nc2tEc0JDV1Z3b25aRm5WeGlsYmlhR19DaGxGUC0wSA?oc=5",
+      "image": "",
+      "time": "2026-09-11T17:49:36Z",
+      "severity": 6,
+      "lat": 31.5,
+      "lon": 34.8,
+      "region": "MIDDLE EAST",
       "description": "Public news signal aggregated from current RSS sources."
     },
     {
@@ -574,25 +689,6 @@
       "lat": null,
       "lon": null,
       "region": "GLOBAL",
-      "description": "Public news signal aggregated from current RSS sources."
-    },
-    {
-      "id": "f444bfe100a1",
-      "category": "geopolitics",
-      "type": "geopolitics",
-      "title": "More than 500,000 Russian troops killed in Ukraine, U.K. defense chief says",
-      "source": "Los Angeles Times",
-      "sources": [
-        "Los Angeles Times"
-      ],
-      "sourceCount": 1,
-      "url": "https://news.google.com/rss/articles/CBMixgFBVV95cUxOQmFaMm9KX29pTTFJc1BTTGxleFRRZWJ4UHpMNlRjaHkyU2ZCc183aE5YT04yQ1EwSEFyQlpwNFU2M2JuZVMxTmw1MEJGX0VQUUdreG5qcWM4bkRFb1ExNnNrS1l2aFRUeGVQSDRNU3o1TG5vRGxTS2N0Z1J2eWpWMFNWY3NQUG1CMUdPVmJDN2UtdHRXNi00Ul9ON2FiWnpuRG1OZmZIa0h1SW5vQlptaDYxdEp1UkY5aGNfVl90QXVrQjVPdGc?oc=5",
-      "image": "",
-      "time": "2026-09-11T14:48:40Z",
-      "severity": 6,
-      "lat": 49,
-      "lon": 32,
-      "region": "EUROPE",
       "description": "Public news signal aggregated from current RSS sources."
     },
     {
@@ -672,22 +768,22 @@
       "description": "Public news signal aggregated from current RSS sources."
     },
     {
-      "id": "85ba08311cad",
-      "category": "macro",
-      "type": "macro",
-      "title": "We Said Rates Would Pause, Then Chase Inflation. The Chase Has Started",
-      "source": "FLYING Magazine",
+      "id": "40a13fba0aba",
+      "category": "geopolitics",
+      "type": "geopolitics",
+      "title": "More than 500,000 Russian troops killed in Ukraine, UK defense chief says",
+      "source": "AP News",
       "sources": [
-        "FLYING Magazine"
+        "AP News"
       ],
       "sourceCount": 1,
-      "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxQUWtpSGxsMXJnR29PNWhOTUxwUG1qRzZuOVlOVk9YVmJkaVZ0ZklMcWpSbkowaTlidGpTWDgyVzBNVlFTRHhMT0x0Y0NsN01YNlBQcWF6MEhrdDh2ZFM1RTBSa3ZoUGxqMDhETkhTSllwZ2lTbmNuSnV3YkhFOWVQUmJYTV9rUG14c0x1Q3RjODMtaGpISnRqRVl1UQ?oc=5",
+      "url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxNam9xc2ktUTRsbll2RHowZTlFeGhHOFhqaUx1bS1YUFNrWHpDbDhkSGg4c3M1R2c0SUpieWMxT1oySUFwTmxzbFpDRXRWR3c2N0s0OHBESnJoMFZRREdUQVZTeDdOTFNIaWhyeVhBNWhzZVpBWUZtT0lkcHFNLWgwU1EzdHJKSGpibWwwN3BIbURyMWxtSy14c21QM1lSUlk?oc=5",
       "image": "",
-      "time": "2026-09-11T14:00:00Z",
+      "time": "2026-09-11T13:59:00Z",
       "severity": 6,
-      "lat": null,
-      "lon": null,
-      "region": "GLOBAL",
+      "lat": 49,
+      "lon": 32,
+      "region": "EUROPE",
       "description": "Public news signal aggregated from current RSS sources."
     },
     {
@@ -707,25 +803,6 @@
       "lat": 36,
       "lon": 138,
       "region": "ASIA",
-      "description": "Public news signal aggregated from current RSS sources."
-    },
-    {
-      "id": "20d520d8a308",
-      "category": "geopolitics",
-      "type": "geopolitics",
-      "title": "West Asia Conflict: Two-week ceasefire holding despite recent strikes on Lebanon",
-      "source": "News On AIR",
-      "sources": [
-        "News On AIR"
-      ],
-      "sourceCount": 1,
-      "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxOSFA3cE05akpCczNDNkNjdmRsQ2VsX3RfZEpLbnlDSUJFWUZHRndCNkhOekNRblZGakJsYkV0emZPOUl2MVM5dEw2b25yQUtPVE16WnZZUkdsWlhwTHlkR2hUMVoyS29rQy1lYmVpdnpMVkZnS2V3UVNIMFBqOE5qSkF5Tkw2aG9nUmV2Y3F2NFRIYVhMd1VDQ0pMa2paUkNSNy1lejdUblc?oc=5",
-      "image": "",
-      "time": "2026-09-11T13:05:53Z",
-      "severity": 6,
-      "lat": null,
-      "lon": null,
-      "region": "MIDDLE EAST",
       "description": "Public news signal aggregated from current RSS sources."
     },
     {
@@ -767,25 +844,6 @@
       "description": "Public news signal aggregated from current RSS sources."
     },
     {
-      "id": "4a1cbf7adb82",
-      "category": "macro",
-      "type": "macro",
-      "title": "US Inflation Holds at 3.4% in August",
-      "source": "Arbiterz",
-      "sources": [
-        "Arbiterz"
-      ],
-      "sourceCount": 1,
-      "url": "https://news.google.com/rss/articles/CBMiaEFVX3lxTE1QbFNCZnhHbXNPTW85cTJjME56YWJ6Mi1MX3lFU3RQS3ItZzZzQ0gzNFV4RzF3Y3dsZkZVVEo5N1lYc3pPNkhPeFFaUjFSLTg4SXhWSWo3WTZYRVlXTWhXcEpockwycE1K?oc=5",
-      "image": "",
-      "time": "2026-09-11T12:52:03Z",
-      "severity": 6,
-      "lat": null,
-      "lon": null,
-      "region": "GLOBAL",
-      "description": "Public news signal aggregated from current RSS sources."
-    },
-    {
       "id": "47b6d5df89b4",
       "category": "macro",
       "type": "macro",
@@ -805,13 +863,32 @@
       "description": "Public news signal aggregated from current RSS sources."
     },
     {
+      "id": "0c6dd12f1b9e",
+      "category": "macro",
+      "type": "macro",
+      "title": "Inflation held steady in August as expected, outpacing wage growth for the fifth month in a row",
+      "source": "Business Insider",
+      "sources": [
+        "Business Insider"
+      ],
+      "sourceCount": 1,
+      "url": "https://news.google.com/rss/articles/CBMihwFBVV95cUxQd2xickZackUtME9iaWo2TldoWG1zclJzSXlLNm1CTEFGbzJwNFYwaVRGSW92Qmo2Z1g2djVxNVV2WHlRdWNrdlJOaGdLS29Xb1IycUliQ0V2STEzQWRwYkdvZlI5WXdPNndSZ0F4VmRabTZ4WjJGNERhQ3BBdlV3c0Y3NGRUMTA?oc=5",
+      "image": "",
+      "time": "2026-09-11T12:44:00Z",
+      "severity": 6,
+      "lat": null,
+      "lon": null,
+      "region": "GLOBAL",
+      "description": "Public news signal aggregated from current RSS sources."
+    },
+    {
       "id": "a7e39f8032b2",
       "category": "geopolitics",
       "type": "geopolitics",
       "title": "US and Iran Weigh Extending Their Ceasefire by Two Weeks",
-      "source": "energynow.com",
+      "source": "EnergyNow.com",
       "sources": [
-        "energynow.com"
+        "EnergyNow.com"
       ],
       "sourceCount": 1,
       "url": "https://news.google.com/rss/articles/CBMikAFBVV95cUxONlB2U04tVC14V2JzSnNYZFRVVDZZWEFnd3ZhY1BrSml2SlFidU1mZjNhQmpmU0w5TmtqMzlGNUc2amQ3QlZMcVc1dUFpWldRUDZWakhBRFA5V09BTXpFUzFiajZ1UGplS3BPcWlBUE5GMDJMR1ZJSTM0eU0yckd4VnUxSlFDUzZfLUlSeGtWN1Q?oc=5",
@@ -843,25 +920,6 @@
       "description": "Public news signal aggregated from current RSS sources."
     },
     {
-      "id": "8614b65ba945",
-      "category": "geopolitics",
-      "type": "geopolitics",
-      "title": "Strait of Hormuz cannot be opened due to ceasefire breaches: Iran",
-      "source": "News On AIR",
-      "sources": [
-        "News On AIR"
-      ],
-      "sourceCount": 1,
-      "url": "https://news.google.com/rss/articles/CBMilAFBVV95cUxNWFF2bDlYSUVuVk4ySHhPaG9aV1UzX05EcVA1dWc4VmZOQVEtRU5fU3VXUzlmS2ZXOXJQbENQOXBwVFZxVkpla2w5b0NKaHJFNHloUEZsUVRPcHRSZXJfS2R1NGJLd1hBMUxMTWpONUJabTRrQkhwdVhyWW04WWNEekJoei16OGxsRHJkVXZXR2hGS2l1?oc=5",
-      "image": "",
-      "time": "2026-09-11T12:06:25Z",
-      "severity": 6,
-      "lat": 26.5,
-      "lon": 56.3,
-      "region": "MIDDLE EAST",
-      "description": "Public news signal aggregated from current RSS sources."
-    },
-    {
       "id": "2b847390b107",
       "category": "macro",
       "type": "macro",
@@ -890,7 +948,7 @@
         "Devdiscourse"
       ],
       "sourceCount": 1,
-      "url": "https://news.google.com/rss/articles/CBMiygFBVV95cUxOVHp1MFNsS01TcFpMa3dmUHctdjAtWmdyR19UMVVnVzAyeVRwQUlHQjRCWi1iNUFpQkJoQ0p0b3kzc2FXSUVIY1hsSS01akFiY2Nwc3lQN3F3Q3haQlJKRDBsX00zNGtwV29Yc3BScEllYlRlZU5ISFp2QTk5ell2bFdfeW01cXVOS3BGOV8yRlgwbzVQanpQeVV5N1ZES0s5NnRMdU9lbWdZVXJKa09aOUVOSlVpVDZxZFd1U2plb25peHRScHkzajRn0gHKAUFVX3lxTE5UenUwU2xLTVNwWkxrd2ZQdy12MC1aZ3JHX1QxVWdXMDJ5VHBBSUdCNEJaLWI1QWlCQmhDSnRveTNzYVdJRUhjWGxJLTVqQWJjY3BzeVA3cXdDeFpCUkpEMGxfTTM0a3BXb1hzcFJwSWViVGVlTkhIWnZBOTl6WXZsV195bTVxdU5LcEY5XzJGWDBvNVBqelB5VXk3VkRLSzk2dEx1T2VtZ1lVckprT1o5RU5KVWlUNnFkV3VTamVvbml4dFJweTNqNGc?oc=5",
+      "url": "https://news.google.com/rss/articles/CBMixAFBVV95cUxQYlowdWZIOHZhcDhXWVpWZDdsTHRicmZ2bjVUcGQ4dzYxSU1sOTQ5YlRkSVo2XzJYWjg0T3R1ZUw1MWZRelRWZlpaOGtDS0tubGg5elhDTXlpczJPWkNMdlRvSnpmVDNLYW5zVEJndkpKbnVremlYWnF2S1E1VmhBNFotOC02S09WNW02U2U0MUR3bC1kTy1RdE0zc3hpTENkdHRMVHl2ZEtVU0tILXloRWFBYVZ0cm4yMnlLN2gxdjBMOXJX0gHKAUFVX3lxTE5UenUwU2xLTVNwWkxrd2ZQdy12MC1aZ3JHX1QxVWdXMDJ5VHBBSUdCNEJaLWI1QWlCQmhDSnRveTNzYVdJRUhjWGxJLTVqQWJjY3BzeVA3cXdDeFpCUkpEMGxfTTM0a3BXb1hzcFJwSWViVGVlTkhIWnZBOTl6WXZsV195bTVxdU5LcEY5XzJGWDBvNVBqelB5VXk3VkRLSzk2dEx1T2VtZ1lVckprT1o5RU5KVWlUNnFkV3VTamVvbml4dFJweTNqNGc?oc=5",
       "image": "",
       "time": "2026-09-11T11:01:48Z",
       "severity": 6,
@@ -904,9 +962,9 @@
       "category": "macro",
       "type": "macro",
       "title": "The Week Ahead: UK Inflation, US Federal Reserve, Bank of Japan",
-      "source": "cmcmarkets.com",
+      "source": "CMC Markets",
       "sources": [
-        "cmcmarkets.com"
+        "CMC Markets"
       ],
       "sourceCount": 1,
       "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxQcGo4Y2VFUF8tZ2RhaWloaml5dzV0MFFOWGRGQmlkNzZ6WmVtdDU3NnJfdzlReFYzaGxHOWUwaXRWbDAwOTFvcWljdlY4a0pDa1M1bEFvbWN0ZFRkYUE3UlNSTUdoUkY0eUthd1UwdWcwTWE0b2NmYktobTJHWDFrdlh3Si1oSWM5dUtMRlRJVjBtT3JvRlVsVUdYOFFVVlhPZEtVbVdYcFhOYzZseGNaRQ?oc=5",
@@ -923,11 +981,11 @@
       "category": "macro",
       "type": "macro",
       "title": "UK inflation expectations fall after Bank of England changes survey provider",
-      "source": "reuters.com",
+      "source": "Reuters",
       "sources": [
-        "reuters.com",
-        "IndexBox",
-        "Sharecast.com"
+        "Reuters",
+        "Sharecast.com",
+        "IndexBox"
       ],
       "sourceCount": 3,
       "url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxQcU9FajQtSFBDN2JsYUNhS3hxdThVcVlrYXVNZUFnSWdEMV9YQ0RNQ3hDTk5pOFl3WldjaEdtSjJKM0FPTUxaeHlVYzRJZG5xNDBvd21YdV9YdEdoN0pNNTVwaklnT0RiLXIzRnpzcWpDT0o2WWcxSG5aN3k3TFVoT1NKWlZiN05DMnJqc1NBR3ktal8yaUVXS1BkNjhKMTVwcnoyak5KWjJOUzhTb2c5LTJqTHhPNGE5X0VNUUl6WHlzQQ?oc=5",
@@ -937,6 +995,25 @@
       "lat": 54,
       "lon": -2,
       "region": "EUROPE",
+      "description": "Public news signal aggregated from current RSS sources."
+    },
+    {
+      "id": "802d746e92ab",
+      "category": "geopolitics",
+      "type": "geopolitics",
+      "title": "Trump claims military victory in Iran. But is the mission accomplished? ANALYSIS - ABC News",
+      "source": "ABC News - Breaking News, Latest News and Videos",
+      "sources": [
+        "ABC News - Breaking News, Latest News and Videos"
+      ],
+      "sourceCount": 1,
+      "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxQWnZ4cllvVUNVMWJidExDVmVfQjI5V3k1WF9xakpiNlBDWnIwbThWREVBRTd5R2RRaS1QRXMwYnJWSGI4OURfX2N1MDlUOVJ2VDlCSnJvaDBmVkNobDZvb2FvdXZ5cDNXb3ZYOGpMdTVBa3luSGx5WmJVa3RYaGl3cVlYS2VIempuOXBLbll1anB3UlZtd1pqbWVVSHo2ejVVVG4weGZlcWtCUGlmR05YN0xB0gG3AUFVX3lxTFB5WDBGakw1MEdlVzRUN3pTMWIyLXBCek1RbTNRLWRidUt3aXFtbTA0TXJyTTJrOVJTQ2t5X3hMaFVESVh6NTlZYk1XNWJQVFRnV3NlM0tlRHhzRVotRTc1NFRrY2hGX3RrOEdQZVVIYzZ4aXNTaWViWFV1UFFSRzN0R19PWXdwZjVndEEzdXJrbHZiNS1mbXRiWkdYRmpYVDJfeGdqQXhzdTZ6SEw5ZWhxOVd6YzhiRQ?oc=5",
+      "image": "",
+      "time": "2026-09-11T09:13:44Z",
+      "severity": 6,
+      "lat": 32,
+      "lon": 53,
+      "region": "MIDDLE EAST",
       "description": "Public news signal aggregated from current RSS sources."
     },
     {
@@ -959,6 +1036,25 @@
       "description": "Public news signal aggregated from current RSS sources."
     },
     {
+      "id": "b8a645dd0330",
+      "category": "macro",
+      "type": "macro",
+      "title": "Bank of England/Savanta Inflation Attitudes Survey - August 2026",
+      "source": "Forex Factory",
+      "sources": [
+        "Forex Factory"
+      ],
+      "sourceCount": 1,
+      "url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxPSk9WWW44V2EwSGpJck1GcFE3dUNhRkxFYTloVlZhRTZZQnhiSS1IS3dJQWNmTXpyYnJoSFBSY3V2dzZVWVJ6Wndia0hOWF9mRktUSFlaSDJ4b0tRYnBBWHBsWHdjZWJmX2FvVy1XTzhvS1BNaDIzc0ZRSjNZd190Z3B5Tkc2LXlTR2ZudFVGeU5yMWhYSXpLMWR3UmZ5Tk3SAaQBQVVfeXFMTWFaS1B1QkRnMFZWUUhVM3RjVHJ0WU9ISnVOVjdtLTVBMHhkdU96Yl9Ua1hQc2lWZWI4RUtyRVlSb0dIY2gtWVJOZ05GcUMtZEM4azRQbHlOUWdXU3lxeGwxMnR0bWRDQk1FeTFmZEJwRENlamx2TElQWGNRN1YzNk1DNTUyNlZqLUxKX2htb0RmT3pEa3ZZdGR2TnJOYlNJYUltMTQ?oc=5",
+      "image": "",
+      "time": "2026-09-11T08:31:00Z",
+      "severity": 6,
+      "lat": null,
+      "lon": null,
+      "region": "EUROPE",
+      "description": "Public news signal aggregated from current RSS sources."
+    },
+    {
       "id": "2ec861767641",
       "category": "geopolitics",
       "type": "geopolitics",
@@ -978,41 +1074,22 @@
       "description": "Public news signal aggregated from current RSS sources."
     },
     {
-      "id": "765f597da548",
+      "id": "6aafc007d94e",
       "category": "macro",
       "type": "macro",
-      "title": "Must read weekly preview: Barratt Redrow, Babcock, Next, inflation, UK/US interest rates",
-      "source": "Interactive Investor",
+      "title": "Can the ECB rate hike stop an inflation shock driven by energy costs?",
+      "source": "inkl",
       "sources": [
-        "Interactive Investor"
+        "inkl"
       ],
       "sourceCount": 1,
-      "url": "https://news.google.com/rss/articles/CBMizAFBVV95cUxPMUhvYlM3ZUdBRDM3RTVVUWlLd3dZNDdPLUk2SV91ZDdYaU5janpFYnpkZkdBY2NpaTRhT1hCZ3lYNk5ZanN2Rkt4U1NGc0gtdzlhaFBIaER3OU1aTHo3NjZXLUg2Wmo3SEZmTmRhMzNkRzVvdzgzajA0V0h4SGlYZkFOMWVfb2N4WEFEa2hZT0ZMN1FzSDF4VUZvN3FYN1BDbFRrVktpaXFVWmxFRXljR0k5RkF5ZjQyRmJGQzhXcTJfWVlqcVQxMGswd1o?oc=5",
+      "url": "https://news.google.com/rss/articles/CBMimgFBVV95cUxPLXFZdks0N1d3ODZ5WWdsOUZzczRXMGtNdE9NcmNFdFdaNnZ1MGxBX1hXQU5jcEtueXRDblp3U2xYTEJveWl1Rjg1aEhncUpYbnZXQ21OVTV0enYxTm5POUoxc25pb09RUmxMTExoTGZybDktdkQ1cFVZSERvU2RDTE90VU9ObUhPSDBid2J5aUhsTlhnS3N5MXdB?oc=5",
       "image": "",
-      "time": "2026-09-11T06:35:00Z",
+      "time": "2026-09-11T05:45:09Z",
       "severity": 6,
-      "lat": 54,
-      "lon": -2,
-      "region": "GLOBAL",
-      "description": "Public news signal aggregated from current RSS sources."
-    },
-    {
-      "id": "e3bcd228fc59",
-      "category": "geopolitics",
-      "type": "geopolitics",
-      "title": "Most Americans oppose military action in Iran, give Trump negative ratings on the economy: Polls - ABC News",
-      "source": "ABC News - Breaking News, Latest News and Videos",
-      "sources": [
-        "ABC News - Breaking News, Latest News and Videos"
-      ],
-      "sourceCount": 1,
-      "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxOZ3B3Nng0OHNxZDU1bTRNOWZUenVzczJhQlc1b3M1WTVWSTlrNmJpOXFaMENRekZ3QXJiZHAtdW5Yd2J6b2lNV2gwWHhIb3BocUVNOU40V2M0WUJnSVl2U1E5MjQzY28tSHlWZk9PTXNzbTA5blR6UU5vQmFTTUU1OHRiY1JrcnBveGg4UXRrbkJiN182T2JKLV9naEtLeERHeHUwMDZQTWM?oc=5",
-      "image": "",
-      "time": "2026-09-11T05:50:09Z",
-      "severity": 6,
-      "lat": 32,
-      "lon": 53,
-      "region": "MIDDLE EAST",
+      "lat": null,
+      "lon": null,
+      "region": "EUROPE",
       "description": "Public news signal aggregated from current RSS sources."
     },
     {
@@ -1115,9 +1192,9 @@
       "category": "macro",
       "type": "macro",
       "title": "ECB hikes interest rates by 25 basis points",
-      "source": "巴士的報",
+      "source": "bastillepost.com",
       "sources": [
-        "巴士的報",
+        "bastillepost.com",
         "İlke Haber Ajansı"
       ],
       "sourceCount": 2,
@@ -1140,7 +1217,7 @@
         "investingLive",
         "The Business Times",
         "IndexBox",
-        "reuters.com"
+        "Reuters"
       ],
       "sourceCount": 4,
       "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxNRW84bmJmcGFXUkZ3WXo5RHdLNFB5WWdmOW9VMkpyRU4xX0NFd0lvWVZhS0QyQmVDaFpTWEQ3YjhwaFB6cWRQaWZYTS1WNTE4ZGJKeDZBRkVUS25MUWFlb0VxU2h1NzhaVkxsNUhvLVhqT0l0MlJjdndJbVJiX3hFT1RnVzh0eHNhTS1iM21ESUtvUFVnRGFnZ09WbGVjUDV0eFJSRnJ3?oc=5",
@@ -1210,13 +1287,32 @@
       "description": "Public news signal aggregated from current RSS sources."
     },
     {
-      "id": "a68f1cdfdf66",
+      "id": "1c1bb981aaba",
       "category": "macro",
       "type": "macro",
-      "title": "Analysis: What a Fed rate hike would mean for the U.S. economy and inflation - The Spokesman-Review",
-      "source": "The Spokesman-Review",
+      "title": "ECB lifts deposit rate to 2.5% as energy shock keeps inflation risks alive",
+      "source": "Briefs Finance",
       "sources": [
-        "The Spokesman-Review"
+        "Briefs Finance"
+      ],
+      "sourceCount": 1,
+      "url": "https://news.google.com/rss/articles/CBMikgFBVV95cUxPUHJMZk9CT0VQaVREaEJVMHMtQ2I1N2tITG5JdDdzd1hNSEdTaERWSlRjY1ZkMFY2ZU5tSWJyaFVCbzJpUGFoRFVNX2ExWllTaENzVm8wYlFhTFZBekItb0VqTWpYUGJmQXNxbW9EeDZyUFlrZVB5OWhGTHo1VFhfdlVXMGJYNWw4VkdRNFE4TVl4Zw?oc=5",
+      "image": "",
+      "time": "2026-09-10T22:33:58Z",
+      "severity": 6,
+      "lat": null,
+      "lon": null,
+      "region": "EUROPE",
+      "description": "Public news signal aggregated from current RSS sources."
+    },
+    {
+      "id": "baa58ecfb5fd",
+      "category": "macro",
+      "type": "macro",
+      "title": "Analysis: What a Fed rate hike would mean for the U.S. economy and inflation",
+      "source": "spokesman.com",
+      "sources": [
+        "spokesman.com"
       ],
       "sourceCount": 1,
       "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxQNUdsenBDM1FoS3hCYThOOThqSVNGN3pLZGFBeVVDV3RwYVFfcW9ROVpsdHhaXzhYdDQ1SGRDMHg5TXFMMmRYZWNXQVgtSXB4Tk12N3dZVk9WbXBmUl9FRllMVERoZjBDMmhuRXNaSm1lcHZhWjhvYjFadkpKa1ZQVG5IWGZTWHc1QlJYbTMyREFNaktLRGRLMjNGeFVLdw?oc=5",
@@ -1267,60 +1363,117 @@
       "description": "Public news signal aggregated from current RSS sources."
     },
     {
-      "id": "40178493d8d0",
-      "category": "macro",
-      "type": "macro",
-      "title": "ECB Hikes Rates and Raises Both Inflation and Growth Forecasts",
-      "source": "Morningstar",
+      "id": "9efc2bd444b6",
+      "category": "energy",
+      "type": "energy",
+      "title": "Oil extends rally on further Middle East disruptions",
+      "source": "Oil & Gas Journal",
       "sources": [
-        "Morningstar"
+        "Oil & Gas Journal"
       ],
       "sourceCount": 1,
-      "url": "https://news.google.com/rss/articles/CBMilAFBVV95cUxOSjlKVUpiUHlzOEFTUm5BMjUwQm9WaElUVFBYZXVReHJJMENQYU9IeEV2ZTVjVGYwNk9oV090TGlxdlJxTFNNbmJSeHlxcFdCLTdXM243MXI5SjQ1SFktSm5UMThiSmNGQV9vV3dqeG1LRWZ5OHc0clUyNVgyckt4VktDWUhYLTI1WTVPM1NzT0drTVl6?oc=5",
+      "url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxNSS1pRmJNdm91dEhud0cwQXdMdXp6M0xfNEM0dGRmN1pDVVFqeEotVW1EOWl2Z1hzcmpPRWFrLVNCUExraV90Mk96eUxDMElSSVlibDZUZk41ellWMGFEYUxiMnNLSWtrOWxaNGZPZl9fUDItampsMXFpVThLa3JPRVNtaTFoOUFHcWtRVEpCWl9YMXNvLTM0RGhZT0JFMTY4Y1hldWZIemxiU0QyNXA1eFpFcHdjNHEzZ1dzU1psVmNWZw?oc=5",
       "image": "",
-      "time": "2026-09-10T20:37:04Z",
-      "severity": 6,
+      "time": "2026-09-11T20:26:15Z",
+      "severity": 5,
+      "lat": 29,
+      "lon": 45,
+      "region": "MIDDLE EAST",
+      "description": "Public news signal aggregated from current RSS sources."
+    },
+    {
+      "id": "e4383a0700d8",
+      "category": "geopolitics",
+      "type": "geopolitics",
+      "title": "Gulf Tankers Are Running Out of Ways to Export Oil: ‘These Waters Aren’t Safe’",
+      "source": "nytimes.com",
+      "sources": [
+        "nytimes.com"
+      ],
+      "sourceCount": 1,
+      "url": "https://news.google.com/rss/articles/CBMifEFVX3lxTFByYjJ4ZE5yM1dTaDdycGR4bHBPV2U1NG1zWnlJeTQ4d0I2dk5WNTVXWnhXUEhId1JjMy1UYUo0cUZZMzZFUHRYSThQdXdTSndpRFVsaEhreV9nLVQzdjJwa1U0ZHNCLXNkOC1tRzBYajV0bFAwWkQ2ZFZKc0k?oc=5",
+      "image": "",
+      "time": "2026-09-11T20:06:01Z",
+      "severity": 5,
       "lat": null,
       "lon": null,
-      "region": "EUROPE",
+      "region": "GLOBAL",
       "description": "Public news signal aggregated from current RSS sources."
     },
     {
-      "id": "f24703c4efb3",
-      "category": "geopolitics",
-      "type": "geopolitics",
-      "title": "Astera Labs vs. Taiwan Semiconductor Manufacturing: Which AI Supplier Stock Is a Better Buy in 2026?",
-      "source": "The Motley Fool",
+      "id": "feba28bf503e",
+      "category": "energy",
+      "type": "energy",
+      "title": "Gulf Tankers Are Running Out of Ways to Export Oil: ‘These Waters Aren’t Safe’",
+      "source": "nytimes.com",
       "sources": [
-        "The Motley Fool"
+        "nytimes.com"
       ],
       "sourceCount": 1,
-      "url": "https://news.google.com/rss/articles/CBMi5AFBVV95cUxObVJta2dGTW1scl80OXRZWm5vRlNZaWpwR2tJd2tBRDM1ZzRRVnVFNlJhZi1nbGI4dXdGdGJWc01BS0ZBOTIyTEcxT1JqNXRzV05FbnJIdmpxMnpIUFZIV1hWYjhTcjM3OEdaNFRUNmQ3dkcxU3Y0TFpqUmVUVWJ2RGlzdXp6Um1XdGZpcjEyZlQ0SXR4b0N0Ty1KdVUtVHVpcEJzUVBoRWQxVUl0dG55YXZTc0pWNlQ1UUpCUDRCVWlfelhSZ0lVOTVsbkk4dnN5QzJpRDI1cWtxNG9TMi00X0hjZGg?oc=5",
+      "url": "https://news.google.com/rss/articles/CBMifEFVX3lxTFByYjJ4ZE5yM1dTaDdycGR4bHBPV2U1NG1zWnlJeTQ4d0I2dk5WNTVXWnhXUEhId1JjMy1UYUo0cUZZMzZFUHRYSThQdXdTSndpRFVsaEhreV9nLVQzdjJwa1U0ZHNCLXNkOC1tRzBYajV0bFAwWkQ2ZFZKc0k?oc=5",
       "image": "",
-      "time": "2026-09-11T18:17:05Z",
+      "time": "2026-09-11T20:06:01Z",
       "severity": 5,
-      "lat": 23.7,
-      "lon": 121,
-      "region": "ASIA",
+      "lat": null,
+      "lon": null,
+      "region": "GLOBAL",
       "description": "Public news signal aggregated from current RSS sources."
     },
     {
-      "id": "2bfe29063260",
-      "category": "geopolitics",
-      "type": "geopolitics",
-      "title": "As Russia Again Draws Near, a Frontline City Fears Obliteration This Time",
-      "source": "The New York Times",
+      "id": "dae1d38f951f",
+      "category": "energy",
+      "type": "energy",
+      "title": "Live: Houthis seize Yemen’s Red Sea coastline in swift advance",
+      "source": "Middle East Eye",
       "sources": [
-        "The New York Times"
+        "Middle East Eye"
       ],
       "sourceCount": 1,
-      "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxNbDlCWTg0VTF1eVdsQk5rYVJuOHZiQXd2VjBXYkNVRFVKRUhWbUVGQ0JCSGxqWlJtYjhLdExGY3llaEF3M1ZvbWsxUF9icjFObFBNODBmSFJGY0NHSFN6MGFKU1BEV1RpazdkazgtT3ItdXBlbzJrQXFPcUV6VHBFT2Rsa2QzbUti?oc=5",
+      "url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxPMmxVRTlVVnFsLTR4cVU3SVlESDU5V05rWmRXOXp2X0RrM1VoM2h4YjQ3SXd1TmFpVFNVT0FKSmVsZWRsZS0ya2R6cENtNnk2N2dnVzFyc1NUbWUxVXVxeU5Ud1h5cXZQamtlV0Eyd0dReVlxTTY5TmNtajB3YmxsX3JwalBzYUk4Z0RnRzFsRHJfelp4b2hzdEl4MUZKTVU?oc=5",
       "image": "",
-      "time": "2026-09-11T18:08:17Z",
+      "time": "2026-09-11T19:52:18Z",
       "severity": 5,
-      "lat": 55,
-      "lon": 37,
-      "region": "EUROPE",
+      "lat": 20,
+      "lon": 38,
+      "region": "MIDDLE EAST",
+      "description": "Public news signal aggregated from current RSS sources."
+    },
+    {
+      "id": "fa18d62d6e3d",
+      "category": "energy",
+      "type": "energy",
+      "title": "In St. Petersburg, nearly half of all gas stations have run out of gasoline",
+      "source": "UA.NEWS",
+      "sources": [
+        "UA.NEWS"
+      ],
+      "sourceCount": 1,
+      "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxNdUg5RnZLb29iS29HdWF1RjZmd1RvQ3RxMndocjFHN3JIamFOaTFDa3dndDR3THU1VGRuUXFQT1hTRWxVTWdpbkdsbEN3RVhIRzc0blFmdWt2STVJN21OMkdWYnZxVEpKQ3lLZmZHLVNKaXoyVWUwU1UwOEg2UkRiSjgwMU1zMndRTEpZRDZ0Zw?oc=5",
+      "image": "",
+      "time": "2026-09-11T19:33:05Z",
+      "severity": 5,
+      "lat": null,
+      "lon": null,
+      "region": "GLOBAL",
+      "description": "Public news signal aggregated from current RSS sources."
+    },
+    {
+      "id": "c3ae7442f806",
+      "category": "energy",
+      "type": "energy",
+      "title": "Global Oil Prices Hold Above $100 as Middle East Conflict Strains",
+      "source": "Aktualita.co",
+      "sources": [
+        "Aktualita.co"
+      ],
+      "sourceCount": 1,
+      "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxQRTJwb2RIRHh3T0FuZHpWclBoZU1Ibnc4T1RWbWl1Z3U1M0plVHJCdUNmZmZGNW0tUlFFQ0NJaktYVVdVQ3lfbVVBMUxYRGx6eEZIc1hhRE8zMmlSOUFhRGdvRlR0SkZ6cmhVZ1lFU0ZTakcyTjd6QWMwSHVNM1dNNDFkdlZtOXg5M3lPbW1pNnQ2Zlg2cmFsb19rdEpuQWFWSHBCaw?oc=5",
+      "image": "",
+      "time": "2026-09-11T18:18:45Z",
+      "severity": 5,
+      "lat": 29,
+      "lon": 45,
+      "region": "MIDDLE EAST",
       "description": "Public news signal aggregated from current RSS sources."
     },
     {
@@ -1343,193 +1496,41 @@
       "description": "Public news signal aggregated from current RSS sources."
     },
     {
-      "id": "a53ece78cc46",
+      "id": "7c4140c3c78f",
       "category": "energy",
       "type": "energy",
-      "title": "Oil futures: Crude off highs, heads for solid weekly gains",
-      "source": "Quantum Commodity Intelligence",
+      "title": "Oil Slides as Middle East Uncertainty Keeps Markets on Edge",
+      "source": "EnergyNow",
       "sources": [
-        "Quantum Commodity Intelligence"
+        "EnergyNow"
       ],
       "sourceCount": 1,
-      "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxQQzJUY2NQTGxEUDlIbGtxUm1iNHdVemdBRUhPeGNQVTBZWUVNVVpzemxBVTlCUzZ1ZFRLOVJxRFNWZkFmUWt0aWgzVnl2aFFmYlAtaWlmbFpISjJWOVpaYlpWT2VVZHZ0N1FIVlpvSTRyX2g3RHZvaGxINEJnSGVhdkc3QTZJRFlsMHkwNm5rTWpUbUk0WW5jMWpsTjY1Sk92?oc=5",
+      "url": "https://news.google.com/rss/articles/CBMikwFBVV95cUxORXB4OGcwVFVYNEpZWXQzdEp0NU45bFJ2SmYycE5DeEFPb2ozM3VndzFPaDdfZzNhWjFZM2JCVlFlcTJRMmRndzZqd0xYX0RRbUlEVmRzZ0VKQ0c2S0FXbTFjWnBDVG9ROVhEYWtsQ2VxQjdVWHhPSlF2XzdqVGM4NGE2QTk1NVIwTDNRWENTNlBOWUU?oc=5",
       "image": "",
-      "time": "2026-09-11T17:18:52Z",
+      "time": "2026-09-11T17:19:36Z",
       "severity": 5,
-      "lat": null,
-      "lon": null,
-      "region": "GLOBAL",
-      "description": "Public news signal aggregated from current RSS sources."
-    },
-    {
-      "id": "16fca5f5b49b",
-      "category": "macro",
-      "type": "macro",
-      "title": "FOMC preview: Fed set to hike 25bp in recalibration move",
-      "source": "ing think",
-      "sources": [
-        "ing think"
-      ],
-      "sourceCount": 1,
-      "url": "https://news.google.com/rss/articles/CBMikAFBVV95cUxPWHU4c1BuQXpuLXpWSjdfVWZaMmNJc19IQUotWXNxYXI4bXpuYUZ1akhQSm16ZWZOT0V6ajB1cmlXT3lHVGpYYlJ3UThnYVpNWVBaYWJXWUxfLUdwaFNLSENZclBaZHJBR0RUNGpXMUU5QUtsbUVST0VuQ1dsNlNkcXJTUVZ1bnljeTYxMGZMYlQ?oc=5",
-      "image": "",
-      "time": "2026-09-11T16:39:45Z",
-      "severity": 5,
-      "lat": null,
-      "lon": null,
-      "region": "AMERICAS",
-      "description": "Public news signal aggregated from current RSS sources."
-    },
-    {
-      "id": "fa866ffc4cd3",
-      "category": "energy",
-      "type": "energy",
-      "title": "Will Tight Refined Product Markets Support Valero's Profitability?",
-      "source": "TradingView",
-      "sources": [
-        "TradingView"
-      ],
-      "sourceCount": 1,
-      "url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxQM29UaVpIbVNiMG1WTEJST0Y5eTJsQk5lT05ORV9tZm82dHRIT3NJNDZ2bktMMFpKZFRiV3V0eUJITV9KSXVUTHp4R0YyN0c0S1hmbjRna1BIbDlaS1lHUjZJSXVmUFVWUzBza3VONzBzSXVEU2VjUVROaV83dDUtWUNfZEpEaVV6RFN6MVNrWUR3VW9yd0ZOSmN5NWdMVVI1WlhQUk9CbFVIQng1N2VXUnhGRFBGNkJ4ZkFNRWV3?oc=5",
-      "image": "",
-      "time": "2026-09-11T16:27:00Z",
-      "severity": 5,
-      "lat": null,
-      "lon": null,
-      "region": "GLOBAL",
-      "description": "Public news signal aggregated from current RSS sources."
-    },
-    {
-      "id": "9cdbbe275958",
-      "category": "energy",
-      "type": "energy",
-      "title": "Saudi Arabia's Critical Oil Bypass Comes Under Threat",
-      "source": "Crude Oil Prices Today | OilPrice.com",
-      "sources": [
-        "Crude Oil Prices Today | OilPrice.com"
-      ],
-      "sourceCount": 1,
-      "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxOa1RuMC1OSzU1SEgwOXk5Z0pLODc2cWxudVUtWDlxcDdTN0x4T0twRjhVZkRjRGd3RTZ4T2w2YzZKWVpWc01OQlF0UkFkNHoyMFo0bjhiSmpqUHBxei1WNWdiMC1odVJUcFJkbmNWaV83Q05zMVJjM1BWajJaOVpVOE5ka3cxbjFHdThjeDFJdHIwZFZPb0VDdDN1c29ScWRV0gGgAUFVX3lxTE5rVG4wLU5LNTVISDA5eTlnSks4NzZxbG51VS1YOXFwN1M3THhPS3BGOFVmRGNEZ3dFNnhPbDZjNkpZWlZzTU5CUXRSQWQ0ejIwWjRuOGJKampQcHF6LVY1Z2IwLWh1UlRwUmRuY1ZpXzdDTnMxUmMzUFZqMlo5WlU4TmRrdzFuMUd1OGN4MUl0cjBkVk9vRUN0M3Vzb1JxZFU?oc=5",
-      "image": "",
-      "time": "2026-09-11T16:05:00Z",
-      "severity": 5,
-      "lat": 24,
+      "lat": 29,
       "lon": 45,
       "region": "MIDDLE EAST",
       "description": "Public news signal aggregated from current RSS sources."
     },
     {
-      "id": "ddf7c2461163",
-      "category": "macro",
-      "type": "macro",
-      "title": "Opinion: Forget the Fed. The Bank of Japan could deliver next week’s market shock.",
-      "source": "MarketWatch",
-      "sources": [
-        "MarketWatch"
-      ],
-      "sourceCount": 1,
-      "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxPcW11bjM3Y01tYm5qUEd1TXRLaENabXd4UTIybDVkOU0tZVpHZm83VWlOQVo3MnFkWE05TlZ0NGV6QmludlBHb3BqdzJENktMNzhyWmZTc0p0amtRbDZGUThMWnBieTg4OVNuMWhpUFpQa3J2V0NwM0FKNjdLcUUtSlRFNXI2d3ZxNWQ1ZGR5MmJNQUdsLS12eVl0cnMwZjFQT0lrUUVLTGd0U29WaVdTTXZpRQ?oc=5",
-      "image": "",
-      "time": "2026-09-11T15:23:00Z",
-      "severity": 5,
-      "lat": 36,
-      "lon": 138,
-      "region": "ASIA",
-      "description": "Public news signal aggregated from current RSS sources."
-    },
-    {
-      "id": "bbec1da14e08",
+      "id": "b6ff59ebc62e",
       "category": "energy",
       "type": "energy",
-      "title": "Market Analysts React to US-Israel Strikes on Iran - Energy News, Top Headlines, Commentaries, Features & Events",
-      "source": "energynow.com",
+      "title": "Stranded Oil Is Streaming Out of Hormuz as Deal Takes Effect",
+      "source": "EnergyNow.com",
       "sources": [
-        "energynow.com"
+        "EnergyNow.com"
       ],
       "sourceCount": 1,
-      "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxNdzVBRVpMelFCUXptU2w1VFdxLV9XUFBsNVlaX1ZHMTlEbDQwNW1WWWpvUjNGYnM1d0h3d2s2Y1ZDMkJJRVh0dHlGUVp0aWNQeF9YMjFDTE1vazZGbG5tM0VrM002WVB1STFibzVzV29WY2lyLXc5NlhHV0t0NDB3MEtBUWdHM3dB?oc=5",
+      "url": "https://news.google.com/rss/articles/CBMilgFBVV95cUxPTXpUQjhXaVdNSFRSRTZ2RTdkcGZVSENTeEhFOHN6aGlELWV5ZVlERTV1QWt0eE1paTE1OFpCXzEtTGo4YXBUejRCMjNmcGktMUFSZmw3Rm9DNkRldmQxXzZKUW83dWE3dVVaOUIxMDIyRTg1ZGhuOWRKbHZHbV8wREc2M0V3SnVqb095Q0pvRzN0TjdwQWc?oc=5",
       "image": "",
-      "time": "2026-09-11T15:11:31Z",
-      "severity": 5,
-      "lat": 31.5,
-      "lon": 34.8,
-      "region": "MIDDLE EAST",
-      "description": "Public news signal aggregated from current RSS sources."
-    },
-    {
-      "id": "501b22031912",
-      "category": "energy",
-      "type": "energy",
-      "title": "Oil Shipping Rates Reach Record Highs Amid Iran‑Houthi Attacks, Threatening Global Supply Chains",
-      "source": "Forth.News",
-      "sources": [
-        "Forth.News"
-      ],
-      "sourceCount": 1,
-      "url": "https://news.google.com/rss/articles/CBMiYkFVX3lxTE9SRVZsbUppNDFhZXo1UWR0Wi1xWUZzbWNrYzVvQVBmNjRUTGRqb0t5bVN1TmZJWkxmcHM3cS03cjRpWDhsUl85RjA0aUxmUnhQTFBPLW1xbTNOdFUyVEJSTVF3?oc=5",
-      "image": "",
-      "time": "2026-09-11T14:52:46Z",
-      "severity": 5,
-      "lat": 32,
-      "lon": 53,
-      "region": "MIDDLE EAST",
-      "description": "Public news signal aggregated from current RSS sources."
-    },
-    {
-      "id": "67cddd559e72",
-      "category": "energy",
-      "type": "energy",
-      "title": "New problem shaping up for the oil market as Hormuz remains shut",
-      "source": "economictimes.com",
-      "sources": [
-        "economictimes.com"
-      ],
-      "sourceCount": 1,
-      "url": "https://news.google.com/rss/articles/CBMi2gFBVV95cUxQaW5DTVBfazgyNkZHUmZySE5WMDRuSHdJbER4NFJ6bGJCZ2lnN2JGR2lhdXpzS0g2NzZPWmJqNjlsa0FjM2EzcXRVTUlVYUVzYV9iMkhfQlRzZUZkSjFqbnhVUDN0T3gwMFdjbjdkRjg1dHR4aEx2WGQtSzl0UUc2YkhNS1RiTXcteDdXVGVRYU9lRGhRb3hDcGdvdEtDS1d3ZEpCTXhHMTM1Y09JM1ZLcDg2d2JMRy03NmFxUkVLeWV4UW1CRWFwZy1TX3lPTVZNMU9SVXF1eUV1UdIB3wFBVV95cUxNTWRCUXFEMUhrWkVGcW1CZGtsV002U2hLUGNhSFhCdXptU0VlYjhsTExUSm9ZaEFmWWVSUGphVEd0S1pBR280Z01sdlN1bU1uTGt6RkkybjNTRGg1cTAyTlRZcU96YlA3bi1ScjNpQlJCd0tqY1piVDNCaFlhYU5xQ2tWNUhKM1hQNERGZm53TVdDcWZZY0hoRmt2VGRSS21XeVhwZmpoZzU4LWZ5N2dJQ3NCeFAzd3lzM1pkVS1iY01memV4Y3NvMlk1clRId1hueEsyYmlsU21hdXhCYjQ4?oc=5",
-      "image": "",
-      "time": "2026-09-11T14:40:41Z",
+      "time": "2026-09-11T17:19:32Z",
       "severity": 5,
       "lat": 26.5,
       "lon": 56.3,
       "region": "MIDDLE EAST",
-      "description": "Public news signal aggregated from current RSS sources."
-    },
-    {
-      "id": "79ceebad7296",
-      "category": "energy",
-      "type": "energy",
-      "title": "Crude: Dubai leads surge as supply crunch bites, extends lead over Brent",
-      "source": "Quantum Commodity Intelligence",
-      "sources": [
-        "Quantum Commodity Intelligence"
-      ],
-      "sourceCount": 1,
-      "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxNUnNMQTBJM2dwbWN4V0syQ01DMjZHR1pMQm1oWjJsU0NjNGJsNjROYS1mblhSUnpScHIyQXEtSF9EWUpxTmt2ZlpDcTdnZW5Xc2FuS2NkZ2lsRVlxSDZQcE1VMDVBR2VKUy05YkNlRktIdmxxR2R6TGo3MGdYTEd0Y1MyMGw4WWg0VU5ON0R1cm9DRldEY2g0dGxjUUJ1emhUMjNRbFdqbXRlWkc2ekh6Ykx1UQ?oc=5",
-      "image": "",
-      "time": "2026-09-11T14:17:50Z",
-      "severity": 5,
-      "lat": 25.2,
-      "lon": 55.3,
-      "region": "MIDDLE EAST",
-      "description": "Public news signal aggregated from current RSS sources."
-    },
-    {
-      "id": "69fc6eccf257",
-      "category": "macro",
-      "type": "macro",
-      "title": "Fed September meeting: 6 data points that could shape Kevin Warsh’s rate call",
-      "source": "CNBC TV18",
-      "sources": [
-        "CNBC TV18"
-      ],
-      "sourceCount": 1,
-      "url": "https://news.google.com/rss/articles/CBMiygFBVV95cUxOajdSTVVqcnZ6VFZHTEhSeDVYcTctVG4wT0RjOFRqY29MM2REUDlrUENuSVRjSlBiWFFPa1BNLVJvZTVkX3lEWmhWMnRTa3ZtdkNLdTlHTWkyZ3BqU1h5d1Bsdk41cUlyeUdlWjZIS1MwcWtRMktqYXlTaE5sbmthWmdKWVZhSmJQMWRJT2x5Q0VSUnVUcDlidTl5aXlHckg1Q0JkLWZkTGdZY3pZUzVTdkFKUWFLWWd6c0Vkc2FCRjIyWm0wSGcwLXJR0gHPAUFVX3lxTFBiSjdVRF9Ld3JwT00tdVQzNjM2QXB0LXJuUnZPUkh3WFNVUzBydFpEM2VMR3ZwZnEtclZkbHJCZ1UtcEZrcHJ6MnVRa2xpRWdZNUdkdHdONVI1VW9ZUWhJTC1lTEp3a09RaDhtdEpwcXVHOHJ0bW8wcDJObm9EbjVvbWU5YktXSl9iTzlGWk4xcE00MGIwTjJFYjhyZGQwS3NXbVVtSnY4MWZTY09McnJzbXZ3cHo3aFYxN2VITE5oNTVBVjBUREJQV053cU9zZw?oc=5",
-      "image": "",
-      "time": "2026-09-11T14:09:12Z",
-      "severity": 5,
-      "lat": null,
-      "lon": null,
-      "region": "AMERICAS",
       "description": "Public news signal aggregated from current RSS sources."
     }
   ]
